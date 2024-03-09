@@ -8,11 +8,18 @@
   date: datetime.today().display(),
 )
 
-= Chapter 1: Computer Networks and the Internet
-= Chapter 2: Application Layer
-= Chapter 3: Transport Layer
-= Chapter 4: The Network Layer: Data Plane
-= Chapter 5: The Network Layer: Control Plane
-= Chapter 6: The Link Layer and LANs
-= Chapter 7: Wireless and Mobile Networks
-= Chapter 8: Security in Computer Networks
+#set heading(numbering: (..args) => {
+  let nums = args.pos()
+  if nums.len() == 1 {
+    return "Chapter " + numbering("1:", ..nums)
+  }
+})
+
+= Computer Networks and the Internet
+= Application Layer
+= Transport Layer
+= The Network Layer: Data Plane
+= The Network Layer: Control Plane
+= The Link Layer and LANs
+= Wireless and Mobile Networks
+= Security in Computer Networks
