@@ -16,6 +16,12 @@
 })
 
 = Computer Networks and the Internet
+== Review Questions
+#set enum(numbering: (it => [R#it. ]))
+== Problems
+#set enum(numbering: (it => [P#it. ]))
+== Wireshark Lab
+
 = Application Layer
 = Transport Layer
 = The Network Layer: Data Plane
