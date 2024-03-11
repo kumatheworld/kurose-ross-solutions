@@ -18,6 +18,7 @@
 = Computer Networks and the Internet
 == Review Questions
 #set enum(numbering: (it => [R#it. ]))
++ A host and an end system are the same thing. Phones or laptops connected to the Internet are examples of end systems. A Web server is also an end system.
 == Problems
 #set enum(numbering: (it => [P#it. ]))
 == Wireshark Lab
