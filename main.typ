@@ -24,6 +24,7 @@
   / Home access: digital subscriber line (DSL), cable Internet access, fiber to the home (FTTH), 5G fixed wireless, Ethernet, Wi-Fi.
   / Enterprise access: Ethernet, Wi-Fi.
   / Wide-area wireless access: 3G, LTE 4G, 5G.
++ HFC transmission rate is shared among users. Collisions are not possible as it is a shared broad- cast medium.
 == Problems
 #set enum(numbering: (it => [P#it.]))
 == Wireshark Lab
