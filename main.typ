@@ -25,6 +25,26 @@
   / Enterprise access: Ethernet, Wi-Fi.
   / Wide-area wireless access: 3G, LTE 4G, 5G.
 + HFC transmission rate is shared among users. Collisions are not possible as it is a shared broad- cast medium.
++ Below are a few examples.
+  #table(
+    columns: (auto, auto, auto, auto, auto),
+    [Name], [Type of access], [Downstream rate], [Upstream rate], [monthly price],
+    [#link("https://www.catv-yokohama.ne.jp/customer/internet/")[YCV NET 1G]],
+    [DOCSIS],
+    [Up to 1Gbps],
+    [Up to 100Mbps],
+    [7,788 JPY/month],
+    [#link("https://network.mobile.rakuten.co.jp/hikari/")[Rakuten Hikari]],
+    [FFTH],
+    [Up to 1Gbps],
+    [Up to 1Gbps],
+    [5,280 JPY/month],
+    [#link("https://www.uqwimax.jp/wimax/")[UQ WiMax]],
+    [BWA],
+    [Up to 4.2Gbps],
+    [Up to 286Mbps],
+    [5,346 JPY/month],
+  )
 == Problems
 #set enum(numbering: (it => [P#it.]))
 == Wireshark Lab
