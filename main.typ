@@ -45,6 +45,7 @@
     [Up to 286Mbps],
     [5,346 JPY/month],
   )
++ Users typically have 100 Mbps to tens of Gbps.
 == Problems
 #set enum(numbering: (it => [P#it.]))
 == Wireshark Lab
