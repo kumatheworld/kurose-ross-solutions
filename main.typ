@@ -46,6 +46,7 @@
     [5,346 JPY/month],
   )
 + Users typically have 100 Mbps to tens of Gbps.
++ Some examples are twisted-pair copper wire, coaxial cable, and optical fiber.
 == Problems
 #set enum(numbering: (it => [P#it.]))
 == Wireshark Lab
