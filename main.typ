@@ -27,8 +27,8 @@
 + HFC transmission rate is shared among users. Collisions are not possible as it is a shared broad- cast medium.
 + Below are a few examples.
   #table(
-    columns: (auto, auto, auto, auto, auto),
-    [Name], [Type of access], [Downstream rate], [Upstream rate], [monthly price],
+    columns: 5,
+    table.header[*Name*][*Type of access*][*Downstream rate*][*Upstream rate*][*monthly price*],
     [#link("https://www.catv-yokohama.ne.jp/customer/internet/")[YCV NET 1G]],
     [DOCSIS],
     [Up to 1 Gbps],
