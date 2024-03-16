@@ -35,7 +35,7 @@
     [Up to 100 Mbps],
     [7,788 JPY/month],
     [#link("https://network.mobile.rakuten.co.jp/hikari/")[Rakuten Hikari]],
-    [FFTH],
+    [FTTH],
     [Up to 1 Gbps],
     [Up to 1 Gbps],
     [5,280 JPY/month],
