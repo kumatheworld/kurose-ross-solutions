@@ -47,6 +47,20 @@
   )
 + Users typically have 100 Mbps to tens of Gbps.
 + Some examples are twisted-pair copper wire, coaxial cable, and optical fiber.
++ The table below shows transmission rates according to some standards for HFC and DSL. In case of FTTH, the transmission rate is potentially several Gbps fast.
+  #table(
+    columns: 3,
+    table.header[*Type of access*][*Downstream transmission*][*Upstream transmission*],
+    [HFC],
+    [Dedicated, 1.2 Gbps],
+    [Dedicated, 100 Mbps],
+    [DSL],
+    [Dedicated, 52 Mbps],
+    [Dedicated, 16 Mbps],
+    [FTTH],
+    [Dedicated, several Gbps],
+    [Dedicated, several Gbps],
+  )
 == Problems
 #set enum(numbering: (it => [P#it.]))
 == Wireshark Lab
