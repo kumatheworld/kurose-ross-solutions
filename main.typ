@@ -24,7 +24,7 @@
   / Home access: digital subscriber line (DSL), cable Internet access, fiber to the home (FTTH), 5G fixed wireless, Ethernet, Wi-Fi.
   / Enterprise access: Ethernet, Wi-Fi.
   / Wide-area wireless access: 3G, LTE 4G, 5G.
-+ HFC transmission rate is shared among users. Collisions are not possible as it is a shared broad- cast medium.
++ HFC transmission rate is shared among users. Collisions are not possible as it is a shared broad-cast medium.
 + Below are a few examples.
   #table(
     columns: 5,
@@ -47,7 +47,7 @@
   )
 + Users typically have 100 Mbps to tens of Gbps.
 + Some examples are twisted-pair copper wire, coaxial cable, and optical fiber.
-+ The table below shows transmission rates according to some standards for HFC and DSL. In case of FTTH, the transmission rate is potentially several Gbps fast.
++ The table below shows transmission rates according to some standards for HFC and DSL. In the case of FTTH, the transmission rate is potentially several Gbps fast.
   #table(
     columns: 3,
     table.header[*Type of access*][*Downstream transmission*][*Upstream transmission*],
