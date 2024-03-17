@@ -61,6 +61,7 @@
     [Dedicated, several Gbps],
     [Dedicated, several Gbps],
   )
++ Cellular network technologies (3G and LTE 4G and 5G) and Wi-Fi seem the most popular ones today. From the user's perspective, the biggest difference would be the range. With a cellular network, a user need only be within a few tens of kilometers of the base station, whereas with Wi-Fi, they have to be within a few tens of meters of the access point.
 == Problems
 #set enum(numbering: (it => [P#it.]))
 == Wireshark Lab
