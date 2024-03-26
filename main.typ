@@ -72,7 +72,8 @@
 + Cellular network technologies (3G and LTE 4G and 5G) and Wi-Fi seem the most popular ones today. From the user's perspective, the biggest difference would be the range. With a cellular network, a user need only be within a few tens of kilometers of the base station, whereas with Wi-Fi, they have to be within a few tens of meters of the access point.
 + $L(1/R_1+1/R_2)$.
 + Dircuit-switching is better than packet-switching in that it establishes an end-to-end connection between the hosts, in which the transmission rate is guaranteed constant. In a circuit-switched network, every circuit of TDM has the same transmission rate, which might make TDM a better choice than FDM.
-+ 20 Mbps / (10 Mbps / user) = 2 users
++
+  + 2 Mbps / (1 Mbps / user) = 2 users
 == Problems
 #set enum(numbering: "P1.")
 == Wireshark Lab
