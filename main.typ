@@ -74,6 +74,7 @@
 + Dircuit-switching is better than packet-switching in that it establishes an end-to-end connection between the hosts, in which the transmission rate is guaranteed constant. In a circuit-switched network, every circuit of TDM has the same transmission rate, which might make TDM a better choice than FDM.
 +
   + 2 Mbps / (1 Mbps / user) = 2 users
+  + We can see from the above that a queuing delay can occur if and only if more than 2 users transmit simultaneously.
 == Problems
 #set enum(numbering: "P1.")
 == Wireshark Lab
