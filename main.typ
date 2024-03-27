@@ -76,6 +76,7 @@
   + 2 Mbps / (1 Mbps / user) = 2 users
   + We can see from the above that a queuing delay can occur if and only if more than 2 users transmit simultaneously.
   + 20% = 0.2 as given.
+  + The queue grows if and only if all three users are transmitting simultaneously, the probability of which is $(0.2)^3=0.008$.
 == Problems
 #set enum(numbering: "P1.")
 == Wireshark Lab
@@ -87,3 +88,5 @@
 = The Link Layer and LANs
 = Wireless and Mobile Networks
 = Security in Computer Networks
+
+// #bibliography("main.bib")
