@@ -75,6 +75,7 @@
 +
   + 2 Mbps / (1 Mbps / user) = 2 users
   + We can see from the above that a queuing delay can occur if and only if more than 2 users transmit simultaneously.
+  + 20% = 0.2 as given.
 == Problems
 #set enum(numbering: "P1.")
 == Wireshark Lab
