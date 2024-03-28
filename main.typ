@@ -77,6 +77,7 @@
   + We can see from the above that a queuing delay can occur if and only if more than 2 users transmit simultaneously.
   + 20% = 0.2 as given.
   + The queue grows if and only if all three users are transmitting simultaneously, the probability of which is $(0.2)^3=0.008$.
++ Two ISPs at the same level of the hierarchy will often peer with each other because it is typically settlement-free as opposed to paying the upstream ISPs. IXPs earn money by charging the traffic exchanged by the downstream access ISPs.
 == Problems
 #set enum(numbering: "P1.")
 == Wireshark Lab
