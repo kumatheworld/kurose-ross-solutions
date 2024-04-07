@@ -86,6 +86,7 @@
   + $min(R_1,R_2,R_3)=500$ kbps.
   + $8dot 4dot 10^6\/(500dot 10^3)=64$ seconds.
   + The throughput will be $min(R_1,R_2,R_3)=100$ kbps. It will take $64dot 500\/100=320$ seconds to transfer the file.
++ End system A creates packets by dividing the file and attaching to each chunk an IP header including the source and destination IP addresses. The router uses the destination IP address to determine the link onto which the packet is forwarded. Packet switching in the Internet is analogous to driving from one city to another and asking directions along the way because the end-to-end route is determined on the fly rather than ahead of time.
 #set enum(numbering: "P1.")
 == Wireshark Lab
 
