@@ -88,6 +88,13 @@
   + The throughput will be $min(R_1,R_2,R_3)=100$ kbps. It will take $64dot 500\/100=320$ seconds to transfer the file.
 + End system A creates packets by dividing the file and attaching to each chunk an IP header including the source and destination IP addresses. The router uses the destination IP address to determine the link onto which the packet is forwarded. Packet switching in the Internet is analogous to driving from one city to another and asking directions along the way because the end-to-end route is determined on the fly rather than ahead of time.
 + The maximum emission rate is 500 packets/s and the minimum transmission rate is 350 packets/s. With those rates, the traffic intensity is the ratio $500\/350=1.43$. It takes about 9.5 mses for packet loss to occur. Repeating the experiment gives you the same amount of time for packet loss to occur because packets arrive periodically.
++ Skipped for now.
++ The five layers are as follows, from the top to the bottom:
+  - *Application layer* is where network applications and their application-layer protocols reside.
+  - *Transport layer* transports application-layer messages between application endpoints.
+  - *Network layer* moves datagrams from one host to another, determining the route between them.
+  - *Link layer* moves frames from one node to the next along the route from one host to another.
+  - *Physical layer* moves the individual bits within frames from one node to the next.
 #set enum(numbering: "P1.")
 == Wireshark Lab
 
