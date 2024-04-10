@@ -95,6 +95,7 @@
   - *Network layer* moves datagrams from one host to another, determining the route between them.
   - *Link layer* moves frames from one node to the next along the route from one host to another.
   - *Physical layer* moves the individual bits within frames from one node to the next.
++ Those are what a packet is called in each layer.
 #set enum(numbering: "P1.")
 == Wireshark Lab
 
