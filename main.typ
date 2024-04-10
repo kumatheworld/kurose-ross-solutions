@@ -96,6 +96,7 @@
   - *Link layer* moves frames from one node to the next along the route from one host to another.
   - *Physical layer* moves the individual bits within frames from one node to the next.
 + Those are what a packet is called in each layer.
++ A router processes the network layer. A link-layer switch processes the link layer. A host processes all five layers.
 #set enum(numbering: "P1.")
 == Wireshark Lab
 
