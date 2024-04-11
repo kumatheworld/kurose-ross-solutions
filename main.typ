@@ -97,6 +97,7 @@
   - *Physical layer* moves the individual bits within frames from one node to the next.
 + Those are what a packet is called in each layer.
 + A router processes the network layer. A link-layer switch processes the link layer. A host processes all five layers.
++ A self-replicating malware is malicious software that continues to infect hosts through the Internet from an already infected host.
 #set enum(numbering: "P1.")
 == Wireshark Lab
 
