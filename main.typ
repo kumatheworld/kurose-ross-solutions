@@ -98,6 +98,7 @@
 + Those are what a packet is called in each layer.
 + A router processes the network layer. A link-layer switch processes the link layer. A host processes all five layers.
 + A self-replicating malware is malicious software that continues to infect hosts through the Internet from an already infected host.
++ A botnet can be created by forming a network of infected hosts. The attacker can then have the compromised hosts blast traffic at the target.
 #set enum(numbering: "P1.")
 == Wireshark Lab
 
