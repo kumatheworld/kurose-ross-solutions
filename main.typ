@@ -100,6 +100,8 @@
 + A self-replicating malware is malicious software that continues to infect hosts through the Internet from an already infected host.
 + A botnet can be created by forming a network of infected hosts. The attacker can then have the compromised hosts blast traffic at the target.
 #set enum(numbering: "P1.")
++ Skipped for now.
++ $d#sub[end-to-end]=N (P L)/R$ as it is equivalent to sending a packet of length $P L$.
 == Wireshark Lab
 
 = Application Layer
