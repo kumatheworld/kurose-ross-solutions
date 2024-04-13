@@ -111,6 +111,9 @@
 })
 + Skipped for now.
 + $d#sub[end-to-end]=N (P L)/R$ as it is equivalent to sending a packet of length $P L$.
++
+  + A circuit-switched network would be more appropriate for this application as it would have to establish a connection repeatedly with packet switching.
+  + No form of congestion control is needed as all the packets will travel across the network without any queuing delay.
 == Wireshark Lab
 
 = Application Layer
