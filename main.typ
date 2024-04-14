@@ -114,6 +114,10 @@
 +
   + A circuit-switched network would be more appropriate for this application as it would have to establish a connection repeatedly with packet switching.
   + No form of congestion control is needed as all the packets will travel across the network without any queuing delay.
++ 
+  + There are $4dot 4=16$ links and there can be as many connections when every connection is made between neighboring nodes.
+  + $4plus 4$ connections can be made, each by way of either switch $B$ or $D$.
+  + Yes we can by establishing 2 connections on each of the following paths: ABC, ADC, BAD, and BCD.
 == Wireshark Lab
 
 = Application Layer
