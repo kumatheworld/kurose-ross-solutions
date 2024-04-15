@@ -118,6 +118,9 @@
   + There are $4dot 4=16$ links and there can be as many connections when every connection is made between neighboring nodes.
   + $4plus 4$ connections can be made, each by way of either switch $B$ or $D$.
   + Yes we can by establishing 2 connections on each of the following paths: ABC, ADC, BAD, and BCD.
++ Since the assumption in the analogy that tollbooths are located every 100km is not consistent with this problem, we instead assume that the first and third tollbooths are 175km away, having the second one somewhere in between. We also assume that each tollbooth services a car at a rate of one car per 12 seconds as in the former setting of the analogy.
+  + The transmission delay is $3dot 10dot 12$ seconds $=6$ minutes. The propagation delay is $175\/100$ hours $=105$ minutes. Therefore, the end-to-end delay is $6+105=111$ minutes long.
+  + The transmission delay is now $3dot 8dot 12$ seconds $=4.8$ minutes, whereas the propagation delay remains the same. Thus the total delay is $4.8+105=109.8$ minutes long.
 == Wireshark Lab
 
 = Application Layer
