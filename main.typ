@@ -121,6 +121,14 @@
 + Since the assumption in the analogy that tollbooths are located every 100km is not consistent with this problem, we instead assume that the first and third tollbooths are 175km away, having the second one somewhere in between. We also assume that each tollbooth services a car at a rate of one car per 12 seconds as in the former setting of the analogy.
   + The transmission delay is $3dot 10dot 12$ seconds $=6$ minutes. The propagation delay is $175\/100$ hours $=105$ minutes. Therefore, the end-to-end delay is $6+105=111$ minutes long.
   + The transmission delay is now $3dot 8dot 12$ seconds $=4.8$ minutes, whereas the propagation delay remains the same. Thus the total delay is $4.8+105=109.8$ minutes long.
++
+  + $d#sub[prop]=m\/s$.
+  + $d#sub[trans]=L\/R$.
+  + $d#sub[end-to-end]=d#sub[prop]+d#sub[trnas]=m\/s+L\/R$.
+  + It is at the A-side end of the link.
+  + It is at the B-side end of the link.
+  + It is somewhere between the two ends of the link. 
+  + $m=s dot L\/R=2.5dot 10^5 "[km/sec]"dot 8dot 1500 "[bits]"\/(10dot 10^6 "[bit/sec]")=300$ km.
 == Wireshark Lab
 
 = Application Layer
