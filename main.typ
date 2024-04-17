@@ -110,7 +110,7 @@
   }
 })
 + Skipped for now.
-+ $d#sub[end-to-end]=N (P L)/R$ as it is equivalent to sending a packet of length $P L$.
++ $d#sub[end-to-end]=(N+P-1)L/R$ as it takes $N L/R$ to send one packet and adding another from the rest $P-1$ packets will each take an additional $L/R$ by pipelining.
 +
   + A circuit-switched network would be more appropriate for this application as it would have to establish a connection repeatedly with packet switching.
   + No form of congestion control is needed as all the packets will travel across the network without any queuing delay.
