@@ -129,6 +129,11 @@
   + It is at the B-side end of the link.
   + It is somewhere between the two ends of the link. 
   + $m=s dot L\/R=2.5dot 10^5 "[km/sec]"dot 8dot 1500 "[bits]"\/(10dot 10^6 "[bit/sec]")=300$ km.
++ We have 3 kinds of delays to consider:
+  - The conversion delay $d#sub[conv]$, which we define as the time needed to convert the rest of the bits including the bit we are interested in. If it is the $n$-th bit in the packet counting from the back where $1<=n<=448$ is an integer, $d#sub[conv]=n\/(64 "[kbps]")=0.016n$ msec.
+  - The transmission delay $d#sub[trans]=56 "[bytes]" \/(10 "[Mbps]")=0.0448$ msec.
+  - The propagation delay $d#sub[prop]=10$ msec.
+  Therefore, the overall delay is $d#sub[conv]+d#sub[trans]+d#sub[prop]=0.016n+10.448$ msec. The first bit ($n=448$) has a delay of 17.45 msec and the last bit ($n=1$) has a delay of 10.46 msec.
 == Wireshark Lab
 
 = Application Layer
