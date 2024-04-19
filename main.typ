@@ -134,6 +134,11 @@
   - The transmission delay $d#sub[trans]=56 "[bytes]" \/(10 "[Mbps]")=0.0448$ msec.
   - The propagation delay $d#sub[prop]=10$ msec.
   Therefore, the overall delay is $d#sub[conv]+d#sub[trans]+d#sub[prop]=0.016n+10.448$ msec. The first bit ($n=448$) has a delay of 17.45 msec and the last bit ($n=1$) has a delay of 10.46 msec.
++
+  + $10 "[Mbps]"\/(200 "[kbps]/user")=50$ users can be supported.
+  + 10 percent as given.
+  + $vec(120,n)dot 9^(120-n)\/10^120$.
+  + $sum_(n=51)^120 vec(120,n)dot 9^(120-n)\/10^120=2.1dot 10^(-20)$.
 == Wireshark Lab
 
 = Application Layer
