@@ -139,6 +139,9 @@
   + 10 percent as given.
   + $vec(120,n)dot 9^(120-n)\/10^120$.
   + $sum_(n=51)^120 vec(120,n)dot 9^(120-n)\/10^120=2.1dot 10^(-20)$.
++
+  + $N=1 "[Gbps]"\/(100 "[kbps]")=10,000$.
+  + $sum_(n=N+1)^M vec(M,n)dot p^n (1-p)^(M-n)$ or equivalently, $sum_(n=1)^N vec(M,n)dot p^(M-n) (1-p)^n$.
 == Wireshark Lab
 
 = Application Layer
