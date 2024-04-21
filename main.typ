@@ -142,6 +142,7 @@
 +
   + $N=1 "[Gbps]"\/(100 "[kbps]")=10,000$.
   + $sum_(n=N+1)^M vec(M,n)dot p^n (1-p)^(M-n)$ or equivalently, $sum_(n=1)^N vec(M,n)dot p^(M-n) (1-p)^n$.
++ The processing, transmission, and propagation delay are $2d#sub[proc]$, $L sum_(i=1)^3 1\/R_i$, and $sum_(i=1)^3 d_i\/s_i$, respectively. Therefore, the total end-to-end delay $d#sub[end-to-end]$ is the sum $2d#sub[proc]+L sum_(i=1)^3 1\/R_i+sum_(i=1)^3 d_i\/s_i$. For those values given, $d#sub[end-to-end]=2dot 3 "msec"+3dot 1,500 "bytes"\/(2.5 "Mbps")+(5,000+4,000+1,000) "km"\/(2.5dot 10^8 "m/s")=(6+14.4+40) "msec"=60.4$ msec.
 == Wireshark Lab
 
 = Application Layer
