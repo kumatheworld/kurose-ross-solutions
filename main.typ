@@ -145,6 +145,9 @@
 + The processing, transmission, and propagation delay are $2d#sub[proc]$, $L sum_(i=1)^3 1\/R_i$, and $sum_(i=1)^3 d_i\/s_i$, respectively. Therefore, the total end-to-end delay $d#sub[end-to-end]$ is the sum $2d#sub[proc]+L sum_(i=1)^3 1\/R_i+sum_(i=1)^3 d_i\/s_i$. For those values given, $d#sub[end-to-end]=2dot 3 "msec"+3dot 1,500 "bytes"\/(2.5 "Mbps")+(5,000+4,000+1,000) "km"\/(2.5dot 10^8 "m/s")=(6+14.4+40) "msec"=60.4$ msec.
 + The processing, transmission, and propagation delay are 0, $L\/R$, and $sum_(i=1)^3 d_i\/s_i$, respectively. Therefore, the total end-to-end delay is the sum $L\/R+sum_(i=1)^3 d_i\/s_i$.
 + The queuing delay $d#sub[queue]$ is given by $d#sub[queue]=(n L-x)\/R$, being equal to the transmission delay of the bits ahead. For those values given, we have $d#sub[queue]=4.5dot 1,500 "bytes"\/(2.5 "Mbps")=21.6$ msec.
++ 
+  + The $n$-th packet has the queuing delay $(n-1)L\/R$ as the transmission delay of the $(n-1)$ packets ahead. Therefore, the average queuing delay is $(sum_(n=1)^N (n-1)L\/R)\/N=(N-1)L\/2R$.
+  + Since $L N\/R$ is long enough to transmit $N$ packets, the average queuing delay is the same as above $(N-1)L\/2R$.
 == Wireshark Lab
 
 = Application Layer
