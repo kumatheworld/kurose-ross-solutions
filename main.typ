@@ -148,6 +148,10 @@
 + 
   + The $n$-th packet has the queuing delay $(n-1)L\/R$ as the transmission delay of the $(n-1)$ packets ahead. Therefore, the average queuing delay is $(sum_(n=1)^N (n-1)L\/R)\/N=(N-1)L\/2R$.
   + Since $L N\/R$ is long enough to transmit $N$ packets, the average queuing delay is the same as above $(N-1)L\/2R$.
++
+  + The queuing and transmission delay are $I L\/R(1-I)$ and $L\/R$ respectively. Therefore, the total delay $d$ is the sum $d=I L\/R(1-I)+L\/R=L\/R(1-I)$.
+  + Let $r=L\/R$. The total delay $d=L\/R(1-I)=r\/(1-a r)$ as a function of $r$ looks like the following. Here we set $a=5$, but the shape of the curve will remain the same with other values as well.
+  #image("c1p14b.png")
 == Wireshark Lab
 
 = Application Layer
