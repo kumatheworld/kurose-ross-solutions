@@ -157,6 +157,8 @@
 +
   + It holds that $d#sub[end-to-end]=sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$, where $d_"proc"^i$, $d_"trans"^i$, and $d_"prop"^i$ are $i$-th router's processing, transmission, and propagation delay, respectively.
   + $d#sub[end-to-end]=(N-1)d_"queue"+sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$.
++ Skipped for now.
++ $n(n-1)$ messages will be sent. Yes, it does support Metcalfe's law.
 == Wireshark Lab
 
 = Application Layer
