@@ -155,6 +155,8 @@
 + $I=a\/mu$ holds. Hence the total delay is $L\/R(1-I)=I\/(1-I)a=1\/(mu-a)$.
 + From Little's formula, it holds that $a=N\/(d#sub[trans]+d#sub[queue])$, where $d#sub[trans]$ and $d#sub[queue]$ are the transmission and queuing delay, respectively. With those values given, we have $d#sub[trans]=1\/(100 "packets/sec")=10$ msec/packet, $d#sub[queue]=20 "msec/packet"$, and $a=100\/((10+20) "msec/packet")=3.33$ packets/msec.
 +
+  + It holds that $d#sub[end-to-end]=sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$, where $d_"proc"^i$, $d_"trans"^i$, and $d_"prop"^i$ are $i$-th router's processing, transmission, and propagation delay, respectively.
+  + $d#sub[end-to-end]=(N-1)d_"queue"+sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$.
 == Wireshark Lab
 
 = Application Layer
