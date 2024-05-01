@@ -159,6 +159,7 @@
   + $d#sub[end-to-end]=(N-1)d_"queue"+sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$.
 + Skipped for now.
 + $n(n-1)$ messages will be sent. Yes, it does support Metcalfe's law.
++ $min{R_s,R_c,R\/M}$.
 == Wireshark Lab
 
 = Application Layer
