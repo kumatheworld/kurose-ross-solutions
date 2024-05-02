@@ -160,6 +160,7 @@
 + Skipped for now.
 + $n(n-1)$ messages will be sent. Yes, it does support Metcalfe's law.
 + $min{R_s,R_c,R\/M}$.
++ If the server can only use one path to send data to the client, the maximum throughput is $max_(k=1,dots,M)min_(i=1,dots,n)R_i^k$. If the server can use all $M$ paths to send data, the maximum throughput is $sum_(k=1)^M min_(i=1,dots,n)R_i^k$.
 == Wireshark Lab
 
 = Application Layer
