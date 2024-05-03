@@ -161,6 +161,7 @@
 + $n(n-1)$ messages will be sent. Yes, it does support Metcalfe's law.
 + $min{R_s,R_c,R\/M}$.
 + If the server can only use one path to send data to the client, the maximum throughput is $max_(k=1,dots,M)min_(i=1,dots,n)R_i^k$. If the server can use all $M$ paths to send data, the maximum throughput is $sum_(k=1)^M min_(i=1,dots,n)R_i^k$.
++ The probability that a packet sent by the server is successfully received by the receiver is $(1-p)^N$. On average, the server will re-transmit the packet as many times as $sum_(i=0)^infinity i(1-(1-p)^N)^i (1-p)^N=1\/(1-p)^N-1$. The formula diverges to infinity if $p=1$, showing that retransmissions continue indefinitely.
 == Wireshark Lab
 
 = Application Layer
