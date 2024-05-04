@@ -157,7 +157,11 @@
 +
   + It holds that $d#sub[end-to-end]=sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$, where $d_"proc"^i$, $d_"trans"^i$, and $d_"prop"^i$ are $i$-th router's processing, transmission, and propagation delay, respectively.
   + $d#sub[end-to-end]=(N-1)d_"queue"+sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$.
-+ Skipped for now.
++ See #link("data/c1p18.sh") and #link("data/c1p18.txt") for reference.
+  + 15.22 #sym.plus.minus 0.23 ms, 15.30 #sym.plus.minus 0.62 ms, and 14.05 #sym.plus.minus 0.07 ms.
+  + The paths and the number of routers did not change.
+  + There are at least 3 ISP networks, namely ntlworld.ie, aorta.net, and Google. The largest delay occurred within Google's network.
+  + The traceroute program does not show the hops close to the destination, but the farthest routers show values around 110ms, which should be close to the actual end-to-end RTT to the destination. The path changed slightly within the gw.umass.edu network. There are at least 3 ISP networks, namely ntlworld.ie, aorta.net, and gtt.net. The largest delay occurred within gtt.net, which was between ae6.cr0-dub2.ip4.gtt.net and et-0-0-5.cr1-bos1.ip4.gtt.net. Those intra-continental and inter-continental results show that the latter was an order of magnitude slower due to the inter-continental link.
 + $n(n-1)$ messages will be sent. Yes, it does support Metcalfe's law.
 + $min{R_s,R_c,R\/M}$.
 + If the server can only use one path to send data to the client, the maximum throughput is $max_(k=1,dots,M)min_(i=1,dots,n)R_i^k$. If the server can use all $M$ paths to send data, the maximum throughput is $sum_(k=1)^M min_(i=1,dots,n)R_i^k$.
