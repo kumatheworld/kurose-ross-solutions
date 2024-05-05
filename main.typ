@@ -166,6 +166,9 @@
 + $min{R_s,R_c,R\/M}$.
 + If the server can only use one path to send data to the client, the maximum throughput is $max_(k=1,dots,M)min_(i=1,dots,n)R_i^k$. If the server can use all $M$ paths to send data, the maximum throughput is $sum_(k=1)^M min_(i=1,dots,n)R_i^k$.
 + The probability that a packet sent by the server is successfully received by the receiver is $(1-p)^N$. On average, the server will re-transmit the packet as many times as $sum_(i=0)^infinity i(1-(1-p)^N)^i (1-p)^N=1\/(1-p)^N-1$. The formula diverges to infinity if $p=1$, showing that retransmissions continue indefinitely.
++
+  + It is $L\/R_s$, which is the bigger of the two transmission delays since there will be no queuing at the router.
+  + The second packet queues if and only if the transmission delay $L\/R_c$ of the first packet at the router is bigger than $L\/R_s+d#sub[prop]$, which is the time it takes for the second packet to reach the router. If that is the case, the second packet will have to wait for $T=L\/R_c-L\/R_s-d#sub[prop]$ seconds to ensure no queuing.
 == Wireshark Lab
 
 = Application Layer
