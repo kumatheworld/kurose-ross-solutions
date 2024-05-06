@@ -169,6 +169,7 @@
 +
   + It is $L\/R_s$, which is the bigger of the two transmission delays since there will be no queuing at the router.
   + The second packet queues if and only if the transmission delay $L\/R_c$ of the first packet at the router is bigger than $L\/R_s+d#sub[prop]$, which is the time it takes for the second packet to reach the router. If that is the case, the second packet will have to wait for $T=L\/R_c-L\/R_s-d#sub[prop]$ seconds to ensure no queuing.
++ It would take $50 "TB"\/(100 "Mbps")=4dot 10^6 "seconds"approx 46.3$ days via the link, so I would prefer FedEx overnight delivery.
 == Wireshark Lab
 
 = Application Layer
