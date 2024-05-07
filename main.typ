@@ -170,6 +170,12 @@
   + It is $L\/R_s$, which is the bigger of the two transmission delays since there will be no queuing at the router.
   + The second packet queues if and only if the transmission delay $L\/R_c$ of the first packet at the router is bigger than $L\/R_s+d#sub[prop]$, which is the time it takes for the second packet to reach the router. If that is the case, the second packet will have to wait for $T=L\/R_c-L\/R_s-d#sub[prop]$ seconds to ensure no queuing.
 + It would take $50 "TB"\/(100 "Mbps")=4dot 10^6 "seconds"approx 46.3$ days via the link, so I would prefer FedEx overnight delivery.
++
+  + $d#sub[prop]=20,000 "km"\/(2.5dot 10^8 "m/sec")=0.08$ sec, so that $R dot d#sub[prop]=5 "Mbps"dot 0.08 "sec"=4dot 10^5$ bits.
+  + If we denote it as $L$ bits, by the time the first bit arrives at Host B, $L\/R$ bits will have been transmitted. Hence $L\/R=d_#sub[prop]$ holds and we get $L=R dot d#sub[prop]=4dot 10^5$ bits. This is smaller than the file size of $8dot 10^6$ bits.
+  + From the above, it can be seen as the maximum number of bits that will be in the link at any given time.
+  + A bit is $20,000 "km"\/(4dot 10^5)=50$ meters long. It is shorter than the football field length of 360 feet.
+  + It is $s\/(R dot d#sub[prop])=m\/(R dot m\/s)=s\/R$.
 == Wireshark Lab
 
 = Application Layer
