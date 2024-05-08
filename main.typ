@@ -176,6 +176,7 @@
   + From the above, it can be seen as the maximum number of bits that will be in the link at any given time.
   + A bit is $20,000 "km"\/(4dot 10^5)=50$ meters long. It is shorter than the football field length of 360 feet.
   + It is $s\/(R dot d#sub[prop])=m\/(R dot m\/s)=s\/R$.
++ $m=s\/R$ holds, so that $R=s\/m=(2.5dot 10^8 "m/s")\/(20,000 "km")=12.5$ bps.
 == Wireshark Lab
 
 = Application Layer
