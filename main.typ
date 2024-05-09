@@ -16,15 +16,7 @@
 })
 = Computer Networks and the Internet
 == Review Questions
-#set enum(full: true, numbering: (..args) => {
-  let nums = args.pos()
-  if nums.len() == 1 {
-    return numbering("R1.", ..nums)
-  } else {
-    let (i, num) = nums.enumerate().last()
-    return numbering("a.", num)
-  }
-})
+#show: enumb.with(pref: "R")
 + A host and an end system are the same thing. Phones or laptops connected to the Internet are examples of end systems. A Web server is also an end system.
 + #quote(block: true, attribution: link("https://en.wikipedia.org/wiki/Protocol_(diplomacy)"))[Protocol is commonly described as a set of international courtesy rules. These well-established and time-honored rules have made it easier for nations and people to live and work together. Part of protocol has always been the acknowledgment of the hierarchical standing of all present. Protocol rules are based on the principles of civility.—Dr. P.M. Forni on behalf of the International Association of Protocol Consultants and Officers.]
 + Standards are important so that people can create products and systems that can interoperate.
@@ -100,15 +92,7 @@
 + A self-replicating malware is malicious software that continues to infect hosts through the Internet from an already infected host.
 + A botnet can be created by forming a network of infected hosts. The attacker can then have the compromised hosts blast traffic at the target.
 == Problems
-#set enum(full: true, numbering: (..args) => {
-  let nums = args.pos()
-  if nums.len() == 1 {
-    return numbering("P1.", ..nums)
-  } else {
-    let (i, num) = nums.enumerate().last()
-    return numbering("a.", num)
-  }
-})
+#show: enumb.with(pref: "P")
 + Skipped for now.
 + $d#sub[end-to-end]=(N+P-1)L/R$ as it takes $N L/R$ to send one packet and adding another from the rest $P-1$ packets will each take an additional $L/R$ by pipelining.
 +
@@ -176,6 +160,7 @@
   + From the above, it can be seen as the maximum number of bits that will be in the link at any given time.
   + A bit is $20,000 "km"\/(4dot 10^5)=50$ meters long. It is shorter than the football field length of 360 feet.
   + It is $s\/(R dot d#sub[prop])=m\/(R dot m\/s)=s\/R$.
++ $m=s\/R$ holds, so that $R=s\/m=(2.5dot 10^8 "m/s")\/(20,000 "km")=12.5$ bps.
 == Wireshark Lab
 
 = Application Layer
