@@ -31,3 +31,17 @@
 
   body
 }
+
+#let enumb(pref: "", body) = {
+  set enum(full: true, numbering: (..args) => {
+    let nums = args.pos()
+    if nums.len() == 1 {
+      return numbering(pref + "1.", ..nums)
+    } else {
+      let (i, num) = nums.enumerate().last()
+      return numbering("a.", num)
+    }
+  })
+
+  body
+}
