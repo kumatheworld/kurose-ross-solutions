@@ -161,7 +161,11 @@
   + A bit is $20,000 "km"\/(4dot 10^5)=50$ meters long. It is shorter than the football field length of 360 feet.
   + It is $s\/(R dot d#sub[prop])=m\/(R dot m\/s)=s\/R$.
 + $m=s\/R$ holds, so that $R=s\/m=(2.5dot 10^8 "m/s")\/(20,000 "km")=12.5$ bps.
-== Wireshark Lab
++
+  + $R dot d#sub[prop]=500 "Mbps"dot 0.08 "sec"=4dot 10^7$ bits.
+  + Now that the file size is smaller, all of the $800,000$ bits will be in the link when the last bit is transmitted.
+  + $s\/R=(2.5dot 10^8 "m/s")\/(500 "Mbps")=0.5$ meters/bit.
+== Wireshark Lab: Getting Started
 
 = Application Layer
 = Transport Layer
