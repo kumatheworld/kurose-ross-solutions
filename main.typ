@@ -169,6 +169,10 @@
   + The transmission delay $d#sub[trans]$ is $800,000 "bits"\/(5 "Mbps")=0.160$ seconds, so that the total delay is $d#sub[trans]+d#sub[prop]=0.160+0.08 "sec"=240$ msec.
   + The transmission delay of one packet is $40,000 "bits"\/(5 "Mbps")=0.008$ seconds, so it takes $0.008+0.08 "sec"=0.088$ sec to send it and get it acknowledged. Since the packets cannot be pipelined, it takes $20dot 0.088 "sec"=1.76$ sec to send the file.
   + The latter takes more than 7 times as much time.
++
+  + The altitude of a geostationary satellite is 35,786 km high, so the propagation delay is $35,786 "km"\/(2.4dot 10^8 "m/s")=149$ msec.
+  + $R dot d#sub[prop]=10 "Mbps"dot 149 "msec"=1.49dot 10^6$ bits.
+  + $x\/R=d#sub[prop]$ holds, so that $x_min=R dot d#sub[prop]=1.49dot 10^6$ bits.
 == Wireshark Lab: Getting Started
 
 = Application Layer
