@@ -29,21 +29,9 @@
   #table(
     columns: 5,
     table.header[*Name*][*Type of access*][*Downstream rate*][*Upstream rate*][*monthly price*],
-    [#link("https://www.catv-yokohama.ne.jp/customer/internet/")[YCV NET 1G]],
-    [DOCSIS],
-    [Up to 1 Gbps],
-    [Up to 100 Mbps],
-    [7,788 JPY/month],
-    [#link("https://network.mobile.rakuten.co.jp/hikari/")[Rakuten Hikari]],
-    [FTTH],
-    [Up to 1 Gbps],
-    [Up to 1 Gbps],
-    [5,280 JPY/month],
-    [#link("https://www.uqwimax.jp/wimax/")[UQ WiMax]],
-    [BWA],
-    [Up to 4.2 Gbps],
-    [Up to 286 Mbps],
-    [5,346 JPY/month],
+    [#link("https://www.catv-yokohama.ne.jp/customer/internet/")[YCV NET 1G]], [DOCSIS], [Up to 1 Gbps], [Up to 100 Mbps], [7,788 JPY/month],
+    [#link("https://network.mobile.rakuten.co.jp/hikari/")[Rakuten Hikari]], [FTTH], [Up to 1 Gbps], [Up to 1 Gbps], [5,280 JPY/month],
+    [#link("https://www.uqwimax.jp/wimax/")[UQ WiMax]], [BWA], [Up to 4.2 Gbps], [Up to 286 Mbps], [5,346 JPY/month],
   )
 + Users typically have 100 Mbps to tens of Gbps.
 + Some examples are twisted-pair copper wire, coaxial cable, and optical fiber.
@@ -51,15 +39,8 @@
   #table(
     columns: 3,
     table.header[*Type of access*][*Downstream transmission*][*Upstream transmission*],
-    [HFC],
-    [Dedicated, 1.2 Gbps],
-    [Dedicated, 100 Mbps],
-    [DSL],
-    [Dedicated, 52 Mbps],
-    [Dedicated, 16 Mbps],
-    [FTTH],
-    [Dedicated, several Gbps],
-    [Dedicated, several Gbps],
+    [HFC], [Dedicated, 1.2 Gbps], [Dedicated, 100 Mbps], [DSL], [Dedicated, 52 Mbps], [Dedicated, 16 Mbps],
+    [FTTH], [Dedicated, several Gbps], [Dedicated, several Gbps],
   )
 + Cellular network technologies (3G and LTE 4G and 5G) and Wi-Fi seem the most popular ones today. From the user's perspective, the biggest difference would be the range. With a cellular network, a user need only be within a few tens of kilometers of the base station, whereas with Wi-Fi, they have to be within a few tens of meters of the access point.
 + $L(1/R_1+1/R_2)$.
