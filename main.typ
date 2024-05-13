@@ -154,6 +154,7 @@
   + The altitude of a geostationary satellite is 35,786 km high, so the propagation delay is $35,786 "km"\/(2.4dot 10^8 "m/s")=149$ msec.
   + $R dot d#sub[prop]=10 "Mbps"dot 149 "msec"=1.49dot 10^6$ bits.
   + $x\/R=d#sub[prop]$ holds, so that $x_min=R dot d#sub[prop]=1.49dot 10^6$ bits.
++ Baggage tags are equivalent to header information.
 == Wireshark Lab: Getting Started
 
 = Application Layer
