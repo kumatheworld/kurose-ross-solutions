@@ -155,6 +155,12 @@
   + $R dot d#sub[prop]=10 "Mbps"dot 149 "msec"=1.49dot 10^6$ bits.
   + $x\/R=d#sub[prop]$ holds, so that $x_min=R dot d#sub[prop]=1.49dot 10^6$ bits.
 + Baggage tags are equivalent to header information.
++
+  + It takes as much as the transmission delay of $10^6 "bits"\/(5 "Mbps")=200$ msec to move the message from the source host to the first packet switch. Since there are 3 links and each switch uses store-and-forward packet switching, it takes 3 times as much time, which is 600 msec, to move the message to the destination host.
+  + It takes $10^4 "bits"\/(5 "Mbps")=2$ msec to move the first packet from the source host to the first packet switch. The second packet to arrive at the first router at time $2 "msec"+2 "msec"=4$ msec.
+  + At time $100dot 2 "msec"=200$ msec, the last packet will be at the first router. It takes another $2dot 2 "msec"=4$ msec to deliver it to the destination, so it takes $200 "msec"+4 "msec"=204$ msec in total to move all of the packets to the destination. It is nearly 3 times as fast as sending the whole message at once, showing that the speedup rate you could get from message segmentation is up to as much as the number of links.
+  + Message integrity check and encryption will be easier. Moreover, other packets will queue less since they can interleave the segmented messages.
+  + Additional header information will be required, which increases the number of bits to be sent. Message reassembly might not be trivial when a packet is lost halfway through.
 == Wireshark Lab: Getting Started
 
 = Application Layer
