@@ -161,6 +161,7 @@
   + At time $100dot 2 "msec"=200$ msec, the last packet will be at the first router. It takes another $2dot 2 "msec"=4$ msec to deliver it to the destination, so it takes $200 "msec"+4 "msec"=204$ msec in total to move all of the packets to the destination. It is nearly 3 times as fast as sending the whole message at once, showing that the speedup rate you could get from message segmentation is up to as much as the number of links.
   + Message integrity check and encryption will be easier. Moreover, other packets will queue less since they can interleave the segmented messages.
   + Additional header information will be required, which increases the number of bits to be sent. Message reassembly might not be trivial when a packet is lost halfway through.
++ The delays in the interactive animation indeed correspond to the delays in the previous problem. Message switching with message size 16 took nearly 3 times as much as message segmentation with package size 1 kbit. Link propagation delays equally increase the overall end-to-end delay regardless of the package size, making the ratio a little smaller.
 == Wireshark Lab: Getting Started
 
 = Application Layer
