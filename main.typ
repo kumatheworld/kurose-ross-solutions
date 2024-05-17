@@ -162,6 +162,7 @@
   + Message integrity check and encryption will be easier. Moreover, other packets will queue less since they can interleave the segmented messages.
   + Additional header information will be required, which increases the number of bits to be sent. Message reassembly might not be trivial when a packet is lost halfway through.
 + The delays in the interactive animation indeed correspond to the delays in the previous problem. Message switching with message size 16 took nearly 3 times as much as message segmentation with package size 1 kbit. Link propagation delays equally increase the overall end-to-end delay regardless of the package size, making the ratio a little smaller.
++ It takes $(F\/S+2)L\/R=(2S+80F\/S+F+160)\/R$ to move the file from Host A to Host B. By the AM-GM inequality, this value is at minimum when $2S=80F\/S$, which is $S=4sqrt(10F)$.
 == Wireshark Lab: Getting Started
 
 = Application Layer
