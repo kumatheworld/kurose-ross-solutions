@@ -165,6 +165,12 @@
 + It takes $(F\/S+2)L\/R=(2S+80F\/S+F+160)\/R$ to move the file from Host A to Host B. By the AM-GM inequality, this value is at minimum when $2S=80F\/S$, which is $S=4sqrt(10F)$.
 + It is conceivable that Skype manages routers that both understand IP and a telephone network protocol, through which a PC and an ordinary phone can be connected.
 == Wireshark Lab: Getting Started
+#set enum(numbering: "1.")
+My experimental result is saved as #link("data/c1w.pcapng").
++ TLSv1, ARP and SSDP were found.
++ It took 106 msec.
++ The address of gaia.cs.umass.edu is 128.119.245.12. The address of my computer is 10.15.14.11.
++ See #link("data/c1w.pcapng").
 
 = Application Layer
 = Transport Layer
