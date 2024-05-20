@@ -173,6 +173,18 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + See #link("data/c1w.pcapng").
 
 = Application Layer
+== Review Questions
+#show: enumb.with(pref: "R")
++ Below are a few examples.
+  #table(
+    columns: 2,
+    table.header[*Application*][*Protocol*],
+    [Web], [HTTP],
+    [Email], [SMTP],
+    [Remote terminal access], [Telnet],
+    [File transfer], [FTP],
+    [IP address resolution], [DNS]
+  )
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
