@@ -185,6 +185,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
     [File transfer], [FTP],
     [IP address resolution], [DNS]
   )
++ The network architecture determines how network devices communicate with each other. It is the five-layer architecture in today's Internet. On the other hand, the application architecture dictates how the application is structured over the various end systems. Common application architectural paradigms include the client-server architecture and the peer-to-peer (P2P) architecture.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
