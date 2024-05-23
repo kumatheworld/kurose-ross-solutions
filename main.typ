@@ -187,6 +187,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
   )
 + The network architecture determines how network devices communicate with each other. It is the five-layer architecture in today's Internet. On the other hand, the application architecture dictates how the application is structured over the various end systems. Common application architectural paradigms include the client-server architecture and the peer-to-peer (P2P) architecture.
 + The client is the host that initiates the connection. The server is the other, waiting for the connection to begin.
++ I do not agree because each session is governed by two hosts just as in the client-server architecture, the one downloading the file being the client and the one uploading it being the server.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
