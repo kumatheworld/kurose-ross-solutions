@@ -191,6 +191,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + An IP address and a port number.
 + I would use UDP to circumvent the congestion control and flow control of TCP.
 + Collaborative document editing would be an example.
++ Below are the four classes of services and whether each is supported by TCP or UDP.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
