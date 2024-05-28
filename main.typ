@@ -192,6 +192,14 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + I would use UDP to circumvent the congestion control and flow control of TCP.
 + Collaborative document editing would be an example.
 + Below are the four classes of services and whether each is supported by TCP or UDP.
+  #table(
+    columns: 2,
+    table.header[*Service*][*Supported by*],
+    [Reliable data transfer], [TCP],
+    [Throughput], [Neither],
+    [Timing], [Neither],
+    [Security], [Neither],
+  )
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
