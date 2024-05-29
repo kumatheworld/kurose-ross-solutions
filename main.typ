@@ -201,6 +201,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
     [Security], [Neither],
   )
 + TLS operates at the application layer. If the application developer wants TCP to be enhanced with TLS, the developer has to pass the cleartext data through the TLS socket.
++ To establish a connection between the two hosts before exchanging actual messages.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
