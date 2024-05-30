@@ -202,6 +202,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
   )
 + TLS operates at the application layer. If the application developer wants TCP to be enhanced with TLS, the developer has to pass the cleartext data through the TLS socket.
 + To establish a connection between the two hosts before exchanging actual messages.
++ Those protocols require no data loss to occur. TCP guarantees reliable data transfer but UDP does not.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
