@@ -203,6 +203,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + TLS operates at the application layer. If the application developer wants TCP to be enhanced with TLS, the developer has to pass the cleartext data through the TLS socket.
 + To establish a connection between the two hosts before exchanging actual messages.
 + Those protocols require no data loss to occur. TCP guarantees reliable data transfer but UDP does not.
++ When the customer's browser visits the website for the first time, the server generates a cookie, stores it in its database and includes it in the HTTP response message. The browser then stores the cookie and includes it in the subsequent HTTP request messages. The server stores customer's information such as a purchase record by using the cookie as the key, which the browser can retrieve by the stored cookie.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
