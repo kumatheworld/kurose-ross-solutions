@@ -205,6 +205,20 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + Those protocols require no data loss to occur. TCP guarantees reliable data transfer but UDP does not.
 + When the customer's browser visits the website for the first time, the server generates a cookie, stores it in its database and includes it in the HTTP response message. The browser then stores the cookie and includes it in the subsequent HTTP request messages. The server stores customer's information such as a purchase record by using the cookie as the key, which the browser can retrieve by the stored cookie.
 + A web cache sits between the client and the server and delivers objects requested by the client on the server's behalf, avoiding potentially slow links on the way from the server. Web caching reduces the delay for requested objects that have not been modified.
++ ```sh
+  $ telnet gaia.cs.umass.edu 80
+  Trying 128.119.245.12...
+  Connected to gaia.cs.umass.edu.
+  Escape character is '^]'.
+  HEAD /index.html HTTP/1.1
+  Host: gaia.cs.umass.edu
+  If-Modified-Since: Fri, 24 May 2024 12:34:56 GMT
+
+  HTTP/1.1 304 Not Modified
+  Date: Sat, 25 May 2024 19:20:25 GMT
+  Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/7.4.33 mod_perl/2.0.11 Perl/v5.16.3
+  ETag: "a5b-52d015789ee9e"
+  ```
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
