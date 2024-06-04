@@ -219,6 +219,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
   Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/7.4.33 mod_perl/2.0.11 Perl/v5.16.3
   ETag: "a5b-52d015789ee9e"
   ```
++ WhatsApp, WeChat and LINE are some popular messaging apps. WhatsApp uses a variation of XMPP @xmpp, WeChat uses MMTLS @8711267, and LINE uses ECDH @ecdh, all running on the TCP/IP protocol suite of the Internet. On the other hand, while SMS messages can be transmitted over XMPP, SMS usually uses different sets of protocols, which might or might not incorporate TCP/IP.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
@@ -226,4 +227,4 @@ My experimental result is saved as #link("data/c1w.pcapng").
 = Wireless and Mobile Networks
 = Security in Computer Networks
 
-// #bibliography("main.bib")
+#bibliography("main.bib")
