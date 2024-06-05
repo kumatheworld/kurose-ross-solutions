@@ -220,6 +220,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
   ETag: "a5b-52d015789ee9e"
   ```
 + WhatsApp, WeChat and LINE are some popular messaging apps. WhatsApp uses a variation of XMPP @xmpp, WeChat uses MMTLS @8711267, and LINE uses ECDH @ecdh, all running on the TCP/IP protocol suite of the Internet. On the other hand, while SMS messages can be transmitted over XMPP, SMS usually uses different sets of protocols, which might or might not incorporate TCP/IP.
++ The message is transmitted as follows: Alice's host $limits(arrow.r)^"HTTP"$ Alice's mail server $limits(arrow.r)^"SMTP"$ Bob's mail server $limits(arrow.r)^"IMAP"$ Bob's host.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
