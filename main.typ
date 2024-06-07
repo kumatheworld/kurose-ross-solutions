@@ -222,6 +222,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + WhatsApp, WeChat and LINE are some popular messaging apps. WhatsApp uses a variation of XMPP @xmpp, WeChat uses MMTLS @8711267, and LINE uses ECDH @ecdh, all running on the TCP/IP protocol suite of the Internet. On the other hand, while SMS messages can be transmitted over XMPP, SMS usually uses different sets of protocols, which might or might not incorporate TCP/IP.
 + The message is transmitted as follows: Alice's host $limits(arrow.r)^"HTTP"$ Alice's mail server $limits(arrow.r)^"SMTP"$ Bob's mail server $limits(arrow.r)^"IMAP"$ Bob's host.
 + There were 4 `Received:` header lines in the latest email in my inbox. @email_headers explains some of the following headers in the email: `Arc-Seal`, `X-Sg-Eid`, `X-Sg-Id`, `X-Received`, `Return-Path`, `Arc-Authentication-Results`, `X-Google-Smtp-Source`, `Mime-Version`, `Authentication-Results`, `X-Entity-Id`, `Arc-Message-Signature`, `Dkim-Signature`, `Dkim-Signature`, `X-Feedback-Id`, `Content-Type`, `Received-Spf`, `Delivered-To`, `Received`. For example, `Delivered-To` shows the recipient, which in the email coincided with my email address.
++ HOL blocking is a phenomenon where a large object in transmission prevents the subsequent elements from being transmitted. HTTP/2 attempts to solve it by sending objects in a round-robin manner, transmitting small chunks of objects alternatingly.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
