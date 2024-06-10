@@ -223,6 +223,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + The message is transmitted as follows: Alice's host $limits(arrow.r)^"HTTP"$ Alice's mail server $limits(arrow.r)^"SMTP"$ Bob's mail server $limits(arrow.r)^"IMAP"$ Bob's host.
 + There were 4 `Received:` header lines in the latest email in my inbox. @email_headers explains some of the following headers in the email: `Arc-Seal`, `X-Sg-Eid`, `X-Sg-Id`, `X-Received`, `Return-Path`, `Arc-Authentication-Results`, `X-Google-Smtp-Source`, `Mime-Version`, `Authentication-Results`, `X-Entity-Id`, `Arc-Message-Signature`, `Dkim-Signature`, `Dkim-Signature`, `X-Feedback-Id`, `Content-Type`, `Received-Spf`, `Delivered-To`, `Received`. For example, `Delivered-To` shows the recipient, which in the email coincided with my email address.
 + HOL blocking is a phenomenon where a large object in transmission prevents the subsequent elements from being transmitted. HTTP/2 attempts to solve it by sending objects in a round-robin manner, transmitting small chunks of objects alternatingly.
++ Yes, an organization’s Web server and mail server can have the exact same alias for a hostname because the host can open ports for both HTTP/HTTPS and SMTP at the same time. The type for the RR that contains the hostname of the mail server would be MX.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
