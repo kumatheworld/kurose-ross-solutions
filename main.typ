@@ -226,6 +226,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + Yes, an organization’s Web server and mail server can have the exact same alias for a hostname because the host can open ports for both HTTP/HTTPS and SMTP at the same time. The type for the RR that contains the hostname of the mail server would be MX.
 + In my received email from `harvard.edu`, several headers including `Received` had a common IP address associated with `amazonses.com`, which is supposedly used by harvard.edu. I did not find an IP address in the header of another email from `gmail.com`.
 + Bob will not necessarily return the favor and provide chunks to Alice in this same interval as she might not want any chunks during that time. However, he'll be a more likely peer to give chunks to Alice if she needs them during and within 10 seconds after the interval.
++ She will be randomly selected as an optimistically unchoked peer and get her first chunks.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
