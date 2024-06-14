@@ -227,6 +227,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + In my received email from `harvard.edu`, several headers including `Received` had a common IP address associated with `amazonses.com`, which is supposedly used by harvard.edu. I did not find an IP address in the header of another email from `gmail.com`.
 + Bob will not necessarily return the favor and provide chunks to Alice in this same interval as she might not want any chunks during that time. However, he'll be a more likely peer to give chunks to Alice if she needs them during and within 10 seconds after the interval.
 + She will be randomly selected as an optimistically unchoked peer and get her first chunks.
++ An overlay network is a graph on top of another network, where the vertices are hosts and the edges are connections. Routers are abstracted away as part of an edge. 
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
