@@ -228,6 +228,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + Bob will not necessarily return the favor and provide chunks to Alice in this same interval as she might not want any chunks during that time. However, he'll be a more likely peer to give chunks to Alice if she needs them during and within 10 seconds after the interval.
 + She will be randomly selected as an optimistically unchoked peer and get her first chunks.
 + An overlay network is a graph on top of another network, where the vertices are hosts and the edges are connections. Routers are abstracted away as part of an edge. 
++ The two philosophies are Enter Deep and Bring Home. The former deploys server clusters in access ISPs all over the world while the latter builds large clusters at a smaller number of sites, typically placing those in Internet Exchange Points (IXPs). The former offers lower delay and higher throughput to end users while the latter has lower maintenance and management overhead.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
