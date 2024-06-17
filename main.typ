@@ -231,6 +231,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + The two philosophies are Enter Deep and Bring Home. The former deploys server clusters in access ISPs all over the world while the latter builds large clusters at a smaller number of sites, typically placing those in Internet Exchange Points (IXPs). The former offers lower delay and higher throughput to end users while the latter has lower maintenance and management overhead.
 + Skipped for now.
 + UDP needs one socket on the server side because it is a connectionless protocol. On the other hand, TCP is a connection-oriented protocol, having a welcoming socket separately from the connection socket. If the TCP server were to support $n$ simultaneous connections, each from a different client host, the TCP server would need at least $n+1$ sockets, one welcoming socket for all the clients and one connection socket for each client.
++ Load balancing and ISP delivery cost are some important factors.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
