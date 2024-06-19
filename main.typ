@@ -232,6 +232,14 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + UDP needs one socket on the server side because it is a connectionless protocol. On the other hand, TCP is a connection-oriented protocol, having a welcoming socket separately from the connection socket. If the TCP server were to support $n$ simultaneous connections, each from a different client host, the TCP server would need at least $n+1$ sockets, one welcoming socket for all the clients and one connection socket for each client.
 + Load balancing and ISP delivery cost are some important factors.
 + Precisely speaking, both the UDP program pair and the TCP program pair need the server to be ready first. However, there is a difference between the two in how late the server can be ready. In the UDP case, `clientSocket.sendto()` will succeed even if the server is not running, as long as it is ready before `clientSocket.recvfrom()` is executed. On the other hand, in the TCP case, you'll get `ConnectionRefusedError: [Errno 61] Connection refused` as soon as the line `clientSocket.connect((serverName, serverPort))` of the client code is executed if the server is not running. This is because TCP needs an interactive handshake before actual data is sent while UDP allows the client to send data without a connection. 
+== Problems
+#show: enumb.with(pref: "P")
++
+  + False. There will be four requests and four responses since there are four objects, each of which needs one request and one response.
+  + True as long as the two web pages reside on the same host.
+  + False. With nonpersistent connections, a connection is closed after sending a message.
+  + False. It shows the time the HTTP message was created.
+  + False. For example, a `304 Not Modified` response will not include a message body.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
