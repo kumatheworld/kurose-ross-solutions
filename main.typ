@@ -240,6 +240,15 @@ My experimental result is saved as #link("data/c1w.pcapng").
   + False. With nonpersistent connections, a connection is closed after sending a message.
   + False. It shows the time the HTTP message was created.
   + False. For example, a `304 Not Modified` response will not include a message body.
++ Below is a table of applications and the protocols they use. iMessage and WeChat use proprietary protocols. In terms of security, PQ3 is more secure than XMPP, which is more secure than MMTLS, according to @pq3.
+  #table(
+    columns: 2,
+    table.header[*Application*][*Protocol(s)*],
+    [SMS], [Standardized protocols such as SMPP @smpp],
+    [iMessage], [It is based on Apple Push Notification service (APNs) @apns and leverages PQ3 @pq3 for security],
+    [WeChat], [MMTLS @8711267],
+    [WhatsApp], [XMPP @xmpp],
+  )
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
