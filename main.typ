@@ -249,6 +249,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
     [WeChat], [MMTLS @8711267],
     [WhatsApp], [XMPP @xmpp],
   )
++ DNS is needed to resolve the hostname, which needs UDP. In the case of HTTP/3, QUIC is used, which also needs UDP. TCP is needed otherwise.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
