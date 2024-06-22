@@ -250,6 +250,12 @@ My experimental result is saved as #link("data/c1w.pcapng").
     [WhatsApp], [XMPP @xmpp],
   )
 + DNS is needed to resolve the hostname, which needs UDP. In the case of HTTP/3, QUIC is used, which also needs UDP. TCP is needed otherwise.
++
+  + `GET /cs453/index.html HTTP/1.1` and  `gaia.cs.umass.edu` show that the requested URL is `http://gaia.cs.umass.edu/cs453/index.html`.
+  + `HTTP/1.1` shows that HTTP version 1.1 is used.
+  + Both `Keep-Alive: 300` and `Connection:keep-alive` show that a persistent connection is used.
+  + It is not shown in the request.
+  + A Netscape browser initiates the message @netscape. The browser type is needed in an HTTP request message because the server may use the information to process the request. For example, the server can reject the request from a specific type of browser.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
