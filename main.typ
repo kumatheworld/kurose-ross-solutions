@@ -256,6 +256,11 @@ My experimental result is saved as #link("data/c1w.pcapng").
   + Both `Keep-Alive: 300` and `Connection:keep-alive` show that a persistent connection is used.
   + It is not shown in the request.
   + A Netscape browser initiates the message @netscape. The browser type is needed in an HTTP request message because the server may use the information to process the request. For example, the server can reject the request from a specific type of browser.
++
+  + `HTTP/1.1 200 OK` and `Date: Tue, 07 Mar 2008 12:39:45GMT` show that the document was found and the reply was provided at that time.
+  + `Last-Modified: Sat, 10 Dec2005 18:27:46 GMT` shows that the document was modified at that time.
+  + `Accept-Ranges: bytes` and `Content-Length: 3874` show that the returned document had 3,874 bytes.
+  + `Content-Type: text/html; charset= ISO-8859-1<cr><lf><cr><lf><!doc` shows that the first 5 bytes being returned are "`<!doc`". `Connection: Keep-Alive` shows that the server agreed to a persistent connection.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
