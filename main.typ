@@ -261,6 +261,24 @@ My experimental result is saved as #link("data/c1w.pcapng").
   + `Last-Modified: Sat, 10 Dec2005 18:27:46 GMT` shows that the document was modified at that time.
   + `Accept-Ranges: bytes` and `Content-Length: 3874` show that the returned document had 3,874 bytes.
   + `Content-Type: text/html; charset= ISO-8859-1<cr><lf><cr><lf><!doc` shows that the first 5 bytes being returned are "`<!doc`". `Connection: Keep-Alive` shows that the server agreed to a persistent connection.
++
+  + The following part from RFC2616 section 14.10 shows that both the client and server can close a persistent connection by including `Connection: close` in the message.
+    ```
+    HTTP/1.1 defines the "close" connection option for the sender to signal that the connection will be closed after completion of the response. For example,
+
+      Connection: close
+
+    in either the request or the response header fields indicates that the connection SHOULD NOT be considered `persistent' (section 8.1) after the current request/response is complete.
+    ```
+  + HTTP does not provide encryption services on its own.
+  + A client can open as many connections as possible, but the following part from RFC2616 section 8.1.4 suggests at most two simultaneous connections.
+    ```
+    Clients that use persistent connections SHOULD limit the number of simultaneous connections that they maintain to a given server. A single-user client SHOULD NOT maintain more than 2 connections with any server or proxy.
+    ```
+  + The following part from RFC2616 section 8.1.4 shows that it is possible for one side to start closing a connection while the other side is transmitting data via an idle connection.
+    ```
+    A client, server, or proxy MAY close the transport connection at any time. For example, a client might have started to send a new request at the same time that the server has decided to close the "idle" connection. From the server's point of view, the connection is being closed while it was idle, but from the client's point of view, a request is in progress.
+    ```
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
