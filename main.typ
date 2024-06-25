@@ -279,6 +279,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
     ```
     A client, server, or proxy MAY close the transport connection at any time. For example, a client might have started to send a new request at the same time that the server has decided to close the "idle" connection. From the server's point of view, the connection is being closed while it was idle, but from the client's point of view, a request is in progress.
     ```
+  + It takes $"RTT"_1+"RTT"_2+dots+"RTT"_n+2"RTT"_0$ because each DNS lookup needs 1 RTT  and the HTTP request and response need 2 RTTs.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
