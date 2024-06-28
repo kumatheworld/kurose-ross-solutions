@@ -283,7 +283,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 + Below is the answer to each question. Note that it takes $"RTT"_1+"RTT"_2+dots+"RTT"_n+2"RTT"_0$ in each case to get the HTML file as shown in the previous solution.
   + It takes $"RTT"_1+"RTT"_2+dots+"RTT"_n+18"RTT"_0$ because it takes another 16 RTTs as each object requires two RTTs.
   + It takes $"RTT"_1+"RTT"_2+dots+"RTT"_n+6"RTT"_0$ because it takes another $2*ceil(8/6)=4$ RTTs.
-  + It takes $"RTT"_1+"RTT"_2+dots+"RTT"_n+3"RTT"_0$ because it takes another RTT.  
+  + It takes $"RTT"_1+"RTT"_2+dots+"RTT"_n+3"RTT"_0$ because it takes another RTT.
 +
   + The average time required to send an object over the access link is $Delta=(1,000,000 "bits"\/"request")\/(15 "Mbps")=0.067 "sec/request"$ the arrival rate of objects to the access link is $beta=16$ requests/sec. Since the traffic intensity $Delta beta=1.07$ exceeds 1, the queuing delay will grow without bound, in which case the total average response time cannot be computed.
 = Transport Layer
