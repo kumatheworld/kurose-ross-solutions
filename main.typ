@@ -286,6 +286,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
   + It takes $"RTT"_1+"RTT"_2+dots+"RTT"_n+3"RTT"_0$ because it takes another RTT.
 +
   + The average time required to send an object over the access link is $Delta=(1,000,000 "bits"\/"request")\/(15 "Mbps")=0.067 "sec/request"$ the arrival rate of objects to the access link is $beta=16$ requests/sec. Since the traffic intensity $Delta beta=1.07$ exceeds 1, the queuing delay will grow without bound, in which case the total average response time cannot be computed.
+  + Let $r=0.4$. Since the arrival rate $beta$ is now $r$ times as much, the average access delay is given by $Delta\/(1-r Delta beta)=1\/(1\/Delta-r beta)=(15-0.4dot 16)^(-1) "sec/request"=0.12$ sec/request. Thus the average total response time via the Internet is $t_"WAN"=3.12$ sec/request, adding the Internet delay. On the other hand, the response time through the LAN is $t_"LAN"=(1,000,000 "bits"\/"request")\/(100 "Mbps")=0.01 "sec/request"$. Therefore, the average total response time is $(1-r)dot t_"LAN"+r dot t_"WAN"=(0.6dot 0.01+0.4dot 3.12) "sec/request"=1.25 "sec/request"$.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
