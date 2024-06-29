@@ -287,6 +287,7 @@ My experimental result is saved as #link("data/c1w.pcapng").
 +
   + The average time required to send an object over the access link is $Delta=(1,000,000 "bits"\/"request")\/(15 "Mbps")=0.067 "sec/request"$ the arrival rate of objects to the access link is $beta=16$ requests/sec. Since the traffic intensity $Delta beta=1.07$ exceeds 1, the queuing delay will grow without bound, in which case the total average response time cannot be computed.
   + Let $r=0.4$. Since the arrival rate $beta$ is now $r$ times as much, the average access delay is given by $Delta\/(1-r Delta beta)=1\/(1\/Delta-r beta)=(15-0.4dot 16)^(-1) "sec/request"=0.12$ sec/request. Thus the average total response time via the Internet is $t_"WAN"=3.12$ sec/request, adding the Internet delay. On the other hand, the response time through the LAN is $t_"LAN"=(1,000,000 "bits"\/"request")\/(100 "Mbps")=0.01 "sec/request"$. Therefore, the average total response time is $(1-r)dot t_"LAN"+r dot t_"WAN"=(0.6dot 0.01+0.4dot 3.12) "sec/request"=1.25 "sec/request"$.
++ Parallel downloads via parallel instances of non-persistent HTTP would not be any better than non-persistent serial HTTP as long as we consider one shared link that evenly splits the bandwidth. Persistent HTTP would reduce $2dot 9=18$ RTTs for packets containing only control, which is $18dot 200=3,600$ bits long as opposed to $10dot 100 "Kbits"=1$ Mbits of objects that have to be sent over the link in any case.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
