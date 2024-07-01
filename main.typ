@@ -116,13 +116,13 @@
 +
   + The queuing and transmission delay are $I L\/R(1-I)$ and $L\/R$ respectively. Therefore, the total delay $d$ is the sum $d=I L\/R(1-I)+L\/R=L\/R(1-I)$.
   + Let $r=L\/R$. The total delay $d=L\/R(1-I)=r\/(1-a r)$ as a function of $r$ looks like the following. Here we set $a=5$, but the shape of the curve will remain the same with other values as well.
-  #image("data/c1p14b.png")
+  #image("extra/c1p14b.png")
 + $I=a\/mu$ holds. Hence the total delay is $L\/R(1-I)=I\/(1-I)a=1\/(mu-a)$.
 + From Little's formula, it holds that $a=N\/(d#sub[trans]+d#sub[queue])$, where $d#sub[trans]$ and $d#sub[queue]$ are the transmission and queuing delay, respectively. With those values given, we have $d#sub[trans]=1\/(100 "packets/sec")=10$ msec/packet, $d#sub[queue]=20 "msec/packet"$, and $a=100\/((10+20) "msec/packet")=3.33$ packets/msec.
 +
   + It holds that $d#sub[end-to-end]=sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$, where $d_"proc"^i$, $d_"trans"^i$, and $d_"prop"^i$ are $i$-th router's processing, transmission, and propagation delay, respectively.
   + $d#sub[end-to-end]=(N-1)d_"queue"+sum_i^N (d_"proc"^i+d_"trans"^i+d_"prop"^i)$.
-+ See #link("data/c1p18.sh") and #link("data/c1p18.txt") for reference.
++ See #link("extra/c1p18.sh") and #link("extra/c1p18.txt") for reference.
   + 15.22 #sym.plus.minus 0.23 ms, 15.30 #sym.plus.minus 0.62 ms, and 14.05 #sym.plus.minus 0.07 ms.
   + The paths and the number of routers did not change.
   + There are at least 3 ISP networks, namely ntlworld.ie, aorta.net, and Google. The largest delay occurred within Google's network.
@@ -166,11 +166,11 @@
 + It is conceivable that Skype manages routers that both understand IP and a telephone network protocol, through which a PC and an ordinary phone can be connected.
 == Wireshark Lab: Getting Started
 #set enum(numbering: "1.")
-My experimental result is saved as #link("data/c1w.pcapng").
+My experimental result is saved as #link("extra/c1w.pcapng").
 + TLSv1, ARP and SSDP were found.
 + It took 106 msec.
 + The address of gaia.cs.umass.edu is 128.119.245.12. The address of my computer is 10.15.14.11.
-+ See #link("data/c1w.pcapng").
++ See #link("extra/c1w.pcapng").
 
 = Application Layer
 == Review Questions
