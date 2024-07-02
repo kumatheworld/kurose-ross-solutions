@@ -305,6 +305,9 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   If-None-Match: "3147526947+gzip"
   If-Modified-Since: Thu, 17 Oct 2019 07:18:26 GMT
   ```
++
+  + $2,000+5dot 3=2,015$ frame times are needed.
+  + $3dot (1+5)=18$ frame times are needed.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
