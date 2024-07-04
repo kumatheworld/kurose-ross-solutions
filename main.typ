@@ -309,6 +309,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + $2,000+5dot 3=2,015$ frame times are needed.
   + $3dot (1+5)=18$ frame times are needed.
 + $2dot 3=6$ frame times are needed because the frames of the first two images will be sent first.
++ `MAIL FROM:` is not part of the message and is an address that mail servers use to determine where to return undeliverable emails.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
