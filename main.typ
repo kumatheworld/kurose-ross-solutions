@@ -310,6 +310,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + $3dot (1+5)=18$ frame times are needed.
 + $2dot 3=6$ frame times are needed because the frames of the first two images will be sent first.
 + `MAIL FROM:` is not part of the message and is an address that mail servers use to determine where to return undeliverable emails.
++ According to #link("https://www.rfc-editor.org/rfc/rfc5321#section-3.3")[RFC5321 Section 3.3], SMTP indicates the end of the mail data by sending a line containing only a ".". On the other hand, according to #link("https://www.rfc-editor.org/rfc/rfc9110#name-content-length")[RF9110 Section 8.6], HTTP...
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
