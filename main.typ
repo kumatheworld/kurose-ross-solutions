@@ -311,6 +311,16 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + $2dot 3=6$ frame times are needed because the frames of the first two images will be sent first.
 + `MAIL FROM:` is not part of the message and is an address that mail servers use to determine where to return undeliverable emails.
 + According to #link("https://www.rfc-editor.org/rfc/rfc5321#section-3.3")[RFC5321 Section 3.3], SMTP indicates the end of the mail data by sending a line containing only a ".". On the other hand, according to #link("https://www.rfc-editor.org/rfc/rfc9110#name-content-length")[RF9110 Section 8.6], HTTP uses the `Content-Length` header field to indicate the size of the message. HTTP cannot use the same method as SMTP to mark the end of a message body as the content might be binary.
++ According to #link("https://www.rfc-editor.org/rfc/rfc5321#section-2.3.3")[RFC5321 Section 2.3.3], MTA stands for "Mail Transfer Agents". The following table shows the intermediate senders and recipients of the spam email:
+  #table(
+    columns: 2,
+    table.header[*Received from*][*Received by*],
+    [barmail.cs.umass.edu [128.119.240.3]], [cs.umass.edu (8.13.1/8.12.6)],
+    [asusus-4b96 (localhost [127.0.0.1])], [barmail.cs.umass.edu (Spam Firewall)],
+    [asusus-4b96 ([58.88.21.177])], [barmail.cs.umass.edu],
+    [[58.88.21.177]], [inbnd55.exchangeddd.com]
+  )
+Here, the host `asusus-4b96 ([58.88.21.177])` is considered malicious because it does not report where it received the email from.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
