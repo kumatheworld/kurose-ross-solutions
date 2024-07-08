@@ -321,6 +321,8 @@ My experimental result is saved as #link("extra/c1w.pcapng").
     [[58.88.21.177]], [inbnd55.exchangeddd.com]
   )
   Here, the host `asusus-4b96 ([58.88.21.177])` is considered malicious because it does not report where it received the email from.
++
+  + A _whois_ database is a public database that stores information about domain names including the owners and IP addresses.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
