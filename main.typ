@@ -323,6 +323,13 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   Here, the host `asusus-4b96 ([58.88.21.177])` is considered malicious because it does not report where it received the email from.
 +
   + A _whois_ database is a public database that stores information about domain names including the owners and IP addresses.
+  + The following DNS servers are listed in #link("https://public-dns.info/")[Public DNS Server List]. The names and databases were found by the `whois` command.
+    #table(
+      columns: 3,
+      table.header[*IP address*][*Name*][*Whois database*],
+      [204.106.240.53], [DMCI Broadband, LLC.], [#link("https://whois.arin.net")[ARIN]],
+      [203.126.118.38], [SingNet Pte Ltd], [#link("https://whois.apnic.net")[APNIK]]
+    ) 
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
