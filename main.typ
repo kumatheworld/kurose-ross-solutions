@@ -331,6 +331,20 @@ My experimental result is saved as #link("extra/c1w.pcapng").
       [203.126.118.38], [SingNet Pte Ltd], [#link("https://whois.apnic.net")[APNIK]]
     ) 
   + In my Wi-Fi network, Google's DNS servers 8.8.8.8 and 8.8.4.4 are used according to the output of `$ scutil --dns | grep nameserver`. I tried `nslookup` for the three different DNS servers 8.8.8.8, 204.106.240.53 and 203.126.118.38, with three different options `-type=A`, `-type=NS` and `-type=MX`. There were no differences between the outputs of the different record types. `$ nslookup 8.8.8.8` showed a non-authoritative answer `name = dns.google`, `$ nslookup 204.106.240.53` showed a non-authoritative answer `name = dns3.dmcibb.net`, and `$ nslookup 203.126.118.38` said that the server could not find 38.118.126.203.in-addr.arpa: NXDOMAIN.
+  + My organization has multiple IP addresses as the following command output shows:
+    ```sh
+    $ nslookup amazon.com
+    Server:		8.8.8.8
+    Address:	8.8.8.8#53
+
+    Non-authoritative answer:
+    Name:	amazon.com
+    Address: 54.239.28.85
+    Name:	amazon.com
+    Address: 52.94.236.248
+    Name:	amazon.com
+    Address: 205.251.242.103
+    ```
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
