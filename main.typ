@@ -345,6 +345,11 @@ My experimental result is saved as #link("extra/c1w.pcapng").
     Name:	amazon.com
     Address: 205.251.242.103
     ```
+  + The following shows the IP address range:
+    ```sh
+    $ nslookup www.u-tokyo.ac.jp | tail -2 | head -1 | cut -d' ' -f2 | xargs whois -a | grep CIDR:
+    CIDR:           210.0.0.0/8
+    ```
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
