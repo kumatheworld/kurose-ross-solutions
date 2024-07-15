@@ -351,6 +351,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
     CIDR:           210.0.0.0/8
     ```
   + As described above, anyone could get the IP address range used by an organization by using `nslookup` to get an IP address and then using `whois` to get the range of addresses.
+  + Whois databases should be publicly available to make sure that all hosts are transparent and accountable for their activities.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
