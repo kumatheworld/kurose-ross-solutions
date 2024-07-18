@@ -352,6 +352,8 @@ My experimental result is saved as #link("extra/c1w.pcapng").
     ```
   + As described above, anyone could get the IP address range used by an organization by using `nslookup` to get an IP address and then using `whois` to get the range of addresses.
   + Whois databases should be publicly available to make sure that all hosts are transparent and accountable for their activities.
++ Skipped for now.
++ If the caching strategy is Least-Frequently Used (LFU), the most frequently used caches are the most popular websites. If it is Least-Recently Used (LRU), the most recently used caches are likely the most popular websites. Otherwise, by taking snapshots of the caches, one can regard the most frequent caches as the most popular websites.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
