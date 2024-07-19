@@ -354,6 +354,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Whois databases should be publicly available to make sure that all hosts are transparent and accountable for their activities.
 + Skipped for now.
 + If the caching strategy is Least-Frequently Used (LFU), the most frequently used caches are the most popular websites. If it is Least-Recently Used (LRU), the most recently used caches are likely the most popular websites. Otherwise, by taking snapshots of the caches, one can regard the most frequent caches as the most popular websites.
++ I am not sure. One can run `dig` commands on the web server host and another host that is unlikely in the cache. If the query times are not so different, one can assume that the web server was unlikely accessed a couple of seconds ago. If the query time for the web server is much shorter, that probably means it was in the cache, but I am not certain how long ago it was accessed last time.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
