@@ -352,7 +352,19 @@ My experimental result is saved as #link("extra/c1w.pcapng").
     ```
   + As described above, anyone could get the IP address range used by an organization by using `nslookup` to get an IP address and then using `whois` to get the range of addresses.
   + Whois databases should be publicly available to make sure that all hosts are transparent and accountable for their activities.
-+ Skipped for now.
++
+  + The output of `dig +trace @a.root-servers.net www.is.s.u-tokyo.ac.jp` showed the following chain of name servers in order.
+    #table(
+      columns: 3,
+      table.header[*DNS server type*][*Domain name*][*IP address*],
+      [Root], [a.root-servers.net], [198.41.0.4],
+      [TLD], [g.dns.jp], [203.119.40.1],
+      [Authoritative], [dns-x.sinet.ad.jp], [150.100.18.10],
+      [Authoritative], [dns3.nc.u-tokyo.ac.jp ], [157.82.0.1],
+      [Authoritative], [ns2.s.u-tokyo.ac.jp], [3.114.219.198],
+    )
+    Finally, the last authoritative server had `CNAME	ut-is.github.io`, for which `nslookup` returned four IP addresses.
+  + Skipped for now.
 + If the caching strategy is Least-Frequently Used (LFU), the most frequently used caches are the most popular websites. If it is Least-Recently Used (LRU), the most recently used caches are likely the most popular websites. Otherwise, by taking snapshots of the caches, one can regard the most frequent caches as the most popular websites.
 + I am not sure. One can run `dig` commands on the web server host and another host that is unlikely in the cache. If the query times are not so different, one can assume that the web server was unlikely accessed a couple of seconds ago. If the query time for the web server is much shorter, that probably means it was in the cache, but I am not certain how long ago it was accessed last time.
 + Below is a 3D plot generated with #link("extra/c2p22.py").
