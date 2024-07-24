@@ -358,6 +358,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
       columns: 3,
       table.header[*DNS server type*][*Domain name*][*IP address*],
       [Root], [a.root-servers.net], [198.41.0.4],
+      [Root], [h.root-servers.net], [198.97.190.53],
       [TLD], [g.dns.jp], [203.119.40.1],
       [Authoritative], [dns-x.sinet.ad.jp], [150.100.18.10],
       [Authoritative], [dns3.nc.u-tokyo.ac.jp ], [157.82.0.1],
