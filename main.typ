@@ -365,7 +365,33 @@ My experimental result is saved as #link("extra/c1w.pcapng").
       [Authoritative], [ns2.s.u-tokyo.ac.jp], [3.114.219.198],
     )
     Finally, the last authoritative server had `CNAME	ut-is.github.io`, for which `nslookup` returned four IP addresses.
-  + Skipped for now.
+  + `dig +trace @a.root-servers.net google.com` showed the following and 6 IP addresses:
+    #table(
+      columns: 3,
+      table.header[*DNS server type*][*Domain name*][*IP address*],
+      [Root], [a.root-servers.net], [198.41.0.4],
+      [Root], [j.root-servers.net], [192.58.128.30],
+      [TLD], [h.gtld-servers.net], [192.54.112.30],
+      [Authoritative], [ns3.google.com], [216.239.36.10]
+    )
+    `dig +trace @a.root-servers.net yahoo.com` showed the following and 6 IP addresses:
+    #table(
+      columns: 3,
+      table.header[*DNS server type*][*Domain name*][*IP address*],
+      [Root], [a.root-servers.net], [198.41.0.4],
+      [Root], [g.root-servers.net], [192.112.36.4],
+      [TLD], [g.gtld-servers.net], [192.42.93.30],
+      [Authoritative], [ns3.yahoo.com], [27.123.42.42]
+    )
+    `dig +trace @a.root-servers.net amazon.com` showed the following and 3 IP addresses:
+    #table(
+      columns: 3,
+      table.header[*DNS server type*][*Domain name*][*IP address*],
+      [Root], [a.root-servers.net], [198.41.0.4],
+      [Root], [c.root-servers.net], [192.33.4.12],
+      [TLD], [b.gtld-servers.net], [192.33.14.30],
+      [Authoritative], [ns2.amzndns.net], [156.154.69.10]
+    )
 + If the caching strategy is Least-Frequently Used (LFU), the most frequently used caches are the most popular websites. If it is Least-Recently Used (LRU), the most recently used caches are likely the most popular websites. Otherwise, by taking snapshots of the caches, one can regard the most frequent caches as the most popular websites.
 + I am not sure. One can run `dig` commands on the web server host and another host that is unlikely in the cache. If the query times are not so different, one can assume that the web server was unlikely accessed a couple of seconds ago. If the query time for the web server is much shorter, that probably means it was in the cache, but I am not certain how long ago it was accessed last time.
 + Below is a 3D plot generated with #link("extra/c2p22.py").
