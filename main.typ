@@ -396,6 +396,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + I am not sure. One can run `dig` commands on the web server host and another host that is unlikely in the cache. If the query times are not so different, one can assume that the web server was unlikely accessed a couple of seconds ago. If the query time for the web server is much shorter, that probably means it was in the cache, but I am not certain how long ago it was accessed last time.
 + Below is a 3D plot generated with #link("extra/c2p22.py").
   #image("extra/c2p22.png")
++
+  + Consider a distribution scheme in which the server sends data in parallel to each client at the rate of $u_s\/N$. Since the download rate of each client is higher by assumption, the upload rate $u_s\/N$ is the bottleneck. Thus, it takes $F\/(u_s\/N)=N F\/u_s$ to send the file to each client.
+  + Consider the above distribution again. The overall distribution time is that of the slowest client because the data is distributed in parallel. Since the slowest download rate $d_"min"$ is lower than the upload rate by assumption, it takes $F\/d_"min"$ to send the file. 
+  + It is shown in the textbook that $max\{N F\/u_s,F\/d_"min"\}$ is a lower bound to the distribution time. Since the above shows that the lower bound is achievable, we have the value as the minimum distribution time.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
