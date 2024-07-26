@@ -400,6 +400,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Consider a distribution scheme in which the server sends data in parallel to each client at the rate of $u_s\/N$. Since the download rate of each client is higher by assumption, the upload rate $u_s\/N$ is the bottleneck. Thus, it takes $F\/(u_s\/N)=N F\/u_s$ to send the file to each client.
   + Consider the above distribution again. The overall distribution time is that of the slowest client because the data is distributed in parallel. Since the slowest download rate $d_"min"$ is lower than the upload rate by assumption, it takes $F\/d_"min"$ to send the file. 
   + It is shown in the textbook that $max\{N F\/u_s,F\/d_"min"\}$ is a lower bound to the distribution time. Since the above shows that the lower bound is achievable, we have the value as the minimum distribution time.
++
+  + Skipped for now.
+  + Skipped for now.
+  + It is shown in the textbook that $max\{F\/u_s,F\/d_"min",N F\/(u_s+u_1+dots+u_N)\}$ is a lower bound to the distribution time. It can be written as $max\{F\/u_s,N F\/(u_s+u_1+dots+u_N)\}$ since $F\/d_"min"$ is much smaller than the other two expressions by the assumption that $d_"min"$ is very large. Since the above shows that the lower bound is achievable, we have the value as the minimum distribution time.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
