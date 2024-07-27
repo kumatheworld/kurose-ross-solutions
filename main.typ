@@ -404,6 +404,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Skipped for now.
   + Skipped for now.
   + It is shown in the textbook that $max\{F\/u_s,F\/d_"min",N F\/(u_s+u_1+dots+u_N)\}$ is a lower bound to the distribution time. It can be written as $max\{F\/u_s,N F\/(u_s+u_1+dots+u_N)\}$ since $F\/d_"min"$ is much smaller than the other two expressions by the assumption that $d_"min"$ is very large. Since the above shows that the lower bound is achievable, we have the value as the minimum distribution time.
++ There are $N$ nodes and $N(N-1)\/2$ edges since the graph is the complete graph on $N$ vertices. Note that the number of routers does not matter since the routers are abstracted away.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
