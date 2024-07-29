@@ -408,6 +408,9 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 +
   + Bob's claim is possible because he can be optimistically unchoked repeatedly until he receives the complete copy.
   + He can do so by sharing the chunks among his hosts.
++
+  + $N^2$ files will be stored since each video and each audio will have to be mixed ahead of time.
+  + $2N$ files will be stored since each video and each audio will be mixed on the client side.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
