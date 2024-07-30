@@ -411,6 +411,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 +
   + $N^2$ files will be stored since each video and each audio will have to be mixed ahead of time.
   + $2N$ files will be stored since each video and each audio will be mixed on the client side.
++
+  + TCPClient raises `ConnectionRefusedError` when the client socket tries to connect to the server that has not started to run. This is because TCP is connection-oriented.
+  + UDPClient hangs up when it tries to receive data from the server but does not stop when it sends data. This is because UDP is not connection-oriented.
+  + With either TCP or UDP, the client fails even if the server is running.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
