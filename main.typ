@@ -415,7 +415,8 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + TCPClient raises `ConnectionRefusedError` when the client socket tries to connect to the server that has not started to run. This is because TCP is connection-oriented.
   + UDPClient hangs up when it tries to receive data from the server but does not stop when it sends data. This is because UDP is not connection-oriented.
   + With either TCP or UDP, the client fails even if the server is running.
-+ It will not become necessary to change the server code. The client uses port 5432 while the server uses port 12000 as specified in the code. Before making the change, the client used a randomly assigned port number such as 54572, which can be checked by calling the `getsockname()` method of the client socket after it has sent data. The server used port 12000. 
++ It will not become necessary to change the server code. The client uses port 5432 while the server uses port 12000 as specified in the code. Before making the change, the client used a randomly assigned port number such as 54572, which can be checked by calling the `getsockname()` method of the client socket after it has sent data. The server used port 12000.
++ Google Chrome does not seem to offer a way to configure multiple TCP connections, but it is enabled by default. Having a large number of simultaneous TCP connections allows the client to have a virtually faster connection while imposing more burden on the server and potentially doing harm to the well-being of the Internet.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
