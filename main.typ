@@ -418,6 +418,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + It will not become necessary to change the server code. The client uses port 5432 while the server uses port 12000 as specified in the code. Before making the change, the client used a randomly assigned port number such as 54572, which can be checked by calling the `getsockname()` method of the client socket after it has sent data. The server used port 12000.
 + Google Chrome does not seem to offer a way to configure multiple TCP connections, but it is enabled by default. Having a large number of simultaneous TCP connections allows the client to have a virtually faster connection while imposing more burden on the server and potentially doing harm to the well-being of the Internet.
 + One advantage is that the packet payload can be always maximized, which leads to faster delivery of the entire message. One disadvantage is that the receiver will have more trouble constructing the message when packets have not been delivered properly.
++ The Apache HTTP Server @apache_webserver is a free and open-source cross-platform web server software. Features include authentication, server-side programming language support, TLS support, proxy support, URL rewriting, custom log files, and filtering support.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
