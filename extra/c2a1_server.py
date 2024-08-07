@@ -1,4 +1,5 @@
 import socket
+from concurrent.futures import ThreadPoolExecutor
 
 
 def send_data(connection_socket: socket.socket, bufsize: int) -> None:
@@ -23,14 +24,16 @@ def send_data(connection_socket: socket.socket, bufsize: int) -> None:
 
 
 def main(server_port: int = 80, bufsize: int = 1024) -> None:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
+    with socket.socket(
+        socket.AF_INET, socket.SOCK_STREAM
+    ) as server_socket, ThreadPoolExecutor() as executor:
         server_socket.bind(("", server_port))
         server_socket.listen()
         while True:
             # Establish the connection
             print("Ready to serve...")
             connection_socket, _ = server_socket.accept()
-            send_data(connection_socket, bufsize)
+            executor.submit(send_data, connection_socket, bufsize)
 
 
 if __name__ == "__main__":
