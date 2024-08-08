@@ -419,6 +419,9 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + Google Chrome does not seem to offer a way to configure multiple TCP connections, but it is enabled by default. Having a large number of simultaneous TCP connections allows the client to have a virtually faster connection while imposing more burden on the server and potentially doing harm to the well-being of the Internet.
 + One advantage is that the packet payload can be always maximized, which leads to faster delivery of the entire message. One disadvantage is that the receiver will have more trouble constructing the message when packets have not been delivered properly.
 + The Apache HTTP Server @apache_webserver is a free and open-source cross-platform web server software. Features include authentication, server-side programming language support, TLS support, proxy support, URL rewriting, custom log files, and filtering support.
+== Socket Programming Assignments
+=== Assignment 1: Web Server
+#link("extra/c2a1_server.py") is a multithreaded web server and #link("extra/c2a1_client.py") is a web client. Note that the server continues to use the same port after accepting a connection.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
