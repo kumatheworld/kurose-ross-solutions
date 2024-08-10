@@ -6,7 +6,7 @@ import typer
 def main(
     server_host: str, server_port: int, filename: str, bufsize: int = 1024
 ) -> None:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
+    with socket.socket() as client_socket:
         client_socket.connect((server_host, server_port))
         request = f"GET /{filename} HTTP/1.0\r\n\r\n"
         client_socket.send(request.encode())

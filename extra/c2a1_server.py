@@ -24,9 +24,7 @@ def send_data(connection_socket: socket.socket, bufsize: int) -> None:
 
 
 def main(server_port: int = 80, bufsize: int = 1024) -> None:
-    with socket.socket(
-        socket.AF_INET, socket.SOCK_STREAM
-    ) as server_socket, ThreadPoolExecutor() as executor:
+    with socket.socket() as server_socket, ThreadPoolExecutor() as executor:
         server_socket.bind(("", server_port))
         server_socket.listen()
         while True:

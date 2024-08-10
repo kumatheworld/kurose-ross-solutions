@@ -2,7 +2,7 @@ import socket
 
 
 def main(server_port: int = 9090, bufsize: int = 1024) -> None:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
+    with socket.socket() as server_socket:
         server_socket.bind(("", server_port))
         server_socket.listen()
         while True:

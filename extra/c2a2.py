@@ -6,7 +6,7 @@ from time import perf_counter
 def main(
     server_host: str = "localhost", server_port: int = 12000, bufsize: int = 1024
 ) -> None:
-    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as client_socket:
+    with socket.socket(type=socket.SOCK_DGRAM) as client_socket:
         for i in range(1, 11):
             client_socket.settimeout(1)
             message = f"Ping {i} {datetime.now()}"
