@@ -5,6 +5,26 @@ from statistics import mean, stdev
 from time import perf_counter, sleep
 
 
+def main(
+    server_host: str = "localhost", server_port: int = 12000, bufsize: int = 1024
+) -> None:
+    with socket.socket(type=socket.SOCK_DGRAM) as client_socket:
+        for i in range(1, 11):
+            client_socket.settimeout(1)
+            message = f"Ping {i} {datetime.now()}".encode()
+            start = perf_counter()
+            try:
+                client_socket.sendto(message, (server_host, server_port))
+                response = client_socket.recv(bufsize)
+            except socket.timeout:
+                print("Request timed out")
+            else:
+                end = perf_counter()
+                rtt = (end - start) * 1e3
+                print(f"Server response: {response.decode()}")
+                print(f"RTT = {rtt:.3f} ms")
+
+
 def opt1(
     server_host: str = "localhost",
     server_port: int = 12000,
@@ -44,26 +64,6 @@ def opt1(
                 f"{i} packets transmitted, {i - num_lost} packets received, {100 * num_lost / i:.1f}% packet loss\n"
                 f"round-trip min/avg/max/stddev = {min(rtts):.3f}/{mean(rtts):.3f}/{max(rtts):.3f}/{stdev(rtts):.3f} ms"
             )
-
-
-def main(
-    server_host: str = "localhost", server_port: int = 12000, bufsize: int = 1024
-) -> None:
-    with socket.socket(type=socket.SOCK_DGRAM) as client_socket:
-        for i in range(1, 11):
-            client_socket.settimeout(1)
-            message = f"Ping {i} {datetime.now()}".encode()
-            start = perf_counter()
-            try:
-                client_socket.sendto(message, (server_host, server_port))
-                response = client_socket.recv(bufsize)
-            except socket.timeout:
-                print("Request timed out")
-            else:
-                end = perf_counter()
-                rtt = (end - start) * 1e3
-                print(f"Server response: {response.decode()}")
-                print(f"RTT = {rtt:.3f} ms")
 
 
 if __name__ == "__main__":
