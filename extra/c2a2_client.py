@@ -5,7 +5,7 @@ from statistics import mean, stdev
 from time import perf_counter, sleep
 
 
-def udp_ping(
+def opt1(
     server_host: str = "localhost",
     server_port: int = 12000,
     bufsize: int = 1024,
