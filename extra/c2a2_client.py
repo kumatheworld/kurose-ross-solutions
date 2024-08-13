@@ -1,6 +1,7 @@
 import socket
 from datetime import datetime
 from itertools import count
+from random import randrange
 from statistics import mean, stdev
 from time import perf_counter, sleep
 
@@ -64,6 +65,22 @@ def opt1(
                 f"{i} packets transmitted, {i - num_lost} packets received, {100 * num_lost / i:.1f}% packet loss\n"
                 f"round-trip min/avg/max/stddev = {min(rtts):.3f}/{mean(rtts):.3f}/{max(rtts):.3f}/{stdev(rtts):.3f} ms"
             )
+
+
+def opt2(
+    server_host: str = "localhost",
+    server_port: int = 12000,
+    wait_max: int = 5,
+    bufsize: int = 1024,
+) -> None:
+    with socket.socket(type=socket.SOCK_DGRAM) as client_socket:
+        for i in count():
+            client_socket.settimeout(1)
+            now = datetime.now()
+            message = f"{i} {now}".encode()
+            client_socket.sendto(message, (server_host, server_port))
+            print(f"{now} message sent to {server_host}:{server_port}")
+            sleep(randrange(wait_max))
 
 
 if __name__ == "__main__":
