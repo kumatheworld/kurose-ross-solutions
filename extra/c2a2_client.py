@@ -68,10 +68,7 @@ def opt1(
 
 
 def opt2(
-    server_host: str = "localhost",
-    server_port: int = 12000,
-    wait_max: int = 5,
-    bufsize: int = 1024,
+    server_host: str = "localhost", server_port: int = 12000, wait_max: int = 5
 ) -> None:
     with socket.socket(type=socket.SOCK_DGRAM) as client_socket:
         for i in count():
