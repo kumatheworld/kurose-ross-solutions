@@ -422,6 +422,8 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 == Socket Programming Assignments
 === Assignment 1: Web Server
 #link("extra/c2a1_server.py") is a multithreaded web server and #link("extra/c2a1_client.py") is a web client. Note that the server continues to use the same port after accepting a connection.
+=== Assignment 2: UDP Pinger
+#link("extra/c2a2_server.py") and #link("extra/c2a2_client.py") implement UDP Ping including the optional exercises.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
