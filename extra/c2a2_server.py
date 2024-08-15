@@ -10,6 +10,8 @@ def parse_message(message: bytes) -> tuple[int, datetime]:
 
 
 def opt2(server_port: int = 12000, wait_time: float = 3, bufsize: int = 1024) -> None:
+    """Implements the server side of the heartbeat protocol.
+    It only considers one client that sends heartbeats sequentially."""
     with socket.socket(type=socket.SOCK_DGRAM) as server_socket:
         server_socket.bind(("", server_port))
         message = server_socket.recv(bufsize)
