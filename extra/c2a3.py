@@ -1,7 +1,7 @@
 import socket
 
 
-def main():
+def main(bufsize: int = 1024) -> None:
     msg = "\r\n I love computer networks!"
     endmsg = "\r\n.\r\n"
 
@@ -11,7 +11,7 @@ def main():
     # Create socket called client_socket and establish a TCP connection with mailserver
     with socket.socket() as client_socket:
         client_socket.connect((mailserver, 25))
-        recv = client_socket.recv(1024).decode()
+        recv = client_socket.recv(bufsize).decode()
         print(recv)
         if recv[:3] != "220":
             print("220 reply not received from server.")
@@ -19,7 +19,7 @@ def main():
         # Send HELO command and print server response.
         heloCommand = "HELO Alice\r\n"
         client_socket.send(heloCommand.encode())
-        recv1 = client_socket.recv(1024).decode()
+        recv1 = client_socket.recv(bufsize).decode()
         print(recv1)
         if recv1[:3] != "250":
             print("250 reply not received from server.")
