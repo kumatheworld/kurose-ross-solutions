@@ -1,47 +1,51 @@
 import socket
 
 
+class SMTPError(Exception):
+    pass
+
+
 def main(bufsize: int = 1024) -> None:
-    msg = "\r\n I love computer networks!"
-    endmsg = "\r\n.\r\n"
-
     # Choose a mail server (e.g. Google mail server) and call it mailserver
-    mailserver = ...  # Fill in start #Fill in end
+    mailserver = "smtp.gmail.com"
 
-    # Create socket called client_socket and establish a TCP connection with mailserver
+    # Create socket called client_socket
     with socket.socket() as client_socket:
+
+        def receive_message(code: int = 250) -> None:
+            response = client_socket.recv(bufsize).decode()
+            print(f"S: {response.rstrip()}")
+            if response[:3] != str(code):
+                raise SMTPError(f"Expected code {code} but got {response[:3]}.")
+
+        def send_and_receive(message: str, code: int = 250) -> None:
+            client_socket.send(f"{message}\r\n".encode())
+            print(f"C: {message}")
+            receive_message(code)
+
+        # Establish a TCP connection with mailserver
         client_socket.connect((mailserver, 25))
-        recv = client_socket.recv(bufsize).decode()
-        print(recv)
-        if recv[:3] != "220":
-            print("220 reply not received from server.")
+        print(f"Connected to {mailserver}")
+        receive_message(220)
 
         # Send HELO command and print server response.
-        helo_command = "HELO Alice\r\n"
-        client_socket.send(helo_command.encode())
-        recv1 = client_socket.recv(bufsize).decode()
-        print(recv1)
-        if recv1[:3] != "250":
-            print("250 reply not received from server.")
+        send_and_receive("HELO Alice")
 
         # Send MAIL FROM command and print server response.
-        # Fill in start
-        # Fill in end
+        send_and_receive("MAIL FROM: <kum@theworld.com>")
+
         # Send RCPT TO command and print server response.
-        # Fill in start
-        # Fill in end
+        send_and_receive("RCPT TO: <kum4th3w0rld@gmail.com>")
+
         # Send DATA command and print server response.
-        # Fill in start
-        # Fill in end
+        send_and_receive("DATA", 354)
+
         # Send message data.
-        # Fill in start
-        # Fill in end
         # Message ends with a single period.
-        # Fill in start
-        # Fill in end
+        send_and_receive("I love computer networks!\r\n.")
+
         # Send QUIT command and get server response.
-        # Fill in start
-        # Fill in end
+        send_and_receive("QUIT", 221)
 
 
 if __name__ == "__main__":
