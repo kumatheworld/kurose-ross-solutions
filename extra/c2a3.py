@@ -17,8 +17,8 @@ def main(bufsize: int = 1024) -> None:
             print("220 reply not received from server.")
 
         # Send HELO command and print server response.
-        heloCommand = "HELO Alice\r\n"
-        client_socket.send(heloCommand.encode())
+        helo_command = "HELO Alice\r\n"
+        client_socket.send(helo_command.encode())
         recv1 = client_socket.recv(bufsize).decode()
         print(recv1)
         if recv1[:3] != "250":
