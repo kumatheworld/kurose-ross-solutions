@@ -17,7 +17,7 @@ def main(
             try:
                 client_socket.sendto(message, (server_host, server_port))
                 response = client_socket.recv(bufsize)
-            except socket.timeout:
+            except TimeoutError:
                 print("Request timed out")
             else:
                 end = perf_counter()
@@ -45,7 +45,7 @@ def opt1(
                     response, (server_host_ret, server_port_ret) = (
                         client_socket.recvfrom(bufsize)
                     )
-                except socket.timeout:
+                except TimeoutError:
                     print(f"Request timeout for udp_ping_seq {i}")
                     num_lost += 1
                 else:

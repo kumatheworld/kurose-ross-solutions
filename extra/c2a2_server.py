@@ -20,7 +20,7 @@ def opt2(server_port: int = 12000, wait_time: float = 3, bufsize: int = 1024) ->
             server_socket.settimeout(wait_time)
             try:
                 message = server_socket.recv(bufsize)
-            except socket.timeout:
+            except TimeoutError:
                 print(f"Heartbeat not heard for {wait_time} seconds")
                 message = server_socket.recv(bufsize)
             finally:
