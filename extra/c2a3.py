@@ -9,8 +9,8 @@ def main(bufsize: int = 1024) -> None:
     # Choose a mail server (e.g. Google mail server) and call it mailserver
     mailserver = "smtp.gmail.com"
 
-    # Create socket called client_socket
-    with socket.socket() as client_socket:
+    # Create socket called client_socket and establish a TCP connection with mailserver
+    with socket.create_connection((mailserver, 25)) as client_socket:
 
         def receive_message(code: int = 250) -> None:
             response = client_socket.recv(bufsize).decode()
@@ -23,8 +23,6 @@ def main(bufsize: int = 1024) -> None:
             print(f"C: {message}")
             receive_message(code)
 
-        # Establish a TCP connection with mailserver
-        client_socket.connect((mailserver, 25))
         print(f"Connected to {mailserver}")
         receive_message(220)
 
