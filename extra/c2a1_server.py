@@ -24,9 +24,9 @@ def send_data(connection_socket: socket.socket, bufsize: int) -> None:
 
 
 def main(server_port: int = 80, bufsize: int = 1024) -> None:
-    with socket.socket() as server_socket, ThreadPoolExecutor() as executor:
-        server_socket.bind(("", server_port))
-        server_socket.listen()
+    with socket.create_server(
+        ("", server_port)
+    ) as server_socket, ThreadPoolExecutor() as executor:
         while True:
             # Establish the connection
             print("Ready to serve...")

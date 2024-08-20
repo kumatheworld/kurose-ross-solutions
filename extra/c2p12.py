@@ -2,9 +2,7 @@ import socket
 
 
 def main(server_port: int = 9090, bufsize: int = 1024) -> None:
-    with socket.socket() as server_socket:
-        server_socket.bind(("", server_port))
-        server_socket.listen()
+    with socket.create_server(("", server_port)) as server_socket:
         while True:
             connection_socket, _ = server_socket.accept()
             with connection_socket:
