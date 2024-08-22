@@ -1,59 +1,83 @@
+import base64
 import socket
 import ssl
+from os import environ
 
 
 class SMTPError(Exception):
     pass
 
 
+def b64trans(message: str) -> str:
+    return base64.b64encode(message.encode()).decode()
+
+
 def main(bufsize: int = 1024) -> None:
-    # Choose a mail server (e.g. Google mail server) and call it mailserver
     mailserver = "smtp.gmail.com"
-    port = 465  # TLS/SSL port for SMTP
 
-    # Create SSL context
-    context = ssl.create_default_context()
+    # Your Gmail credentials
+    username = environ["GMAIL_ADDRESS"]
+    password = environ["GMAIL_PASSWORD"]
 
-    # Create socket and wrap it with SSL
-    with socket.create_connection(
-        (mailserver, port)
-    ) as client_socket, context.wrap_socket(
-        client_socket, server_hostname=mailserver
-    ) as secure_socket:
+    # Create socket connection
+    with socket.create_connection((mailserver, 587)) as client_socket:
 
         def receive_message(code: int = 250) -> None:
-            response = secure_socket.recv(bufsize).decode()
+            response = client_socket.recv(bufsize).decode()
             print(f"S: {response.rstrip()}")
             if response[:3] != str(code):
                 raise SMTPError(f"Expected code {code} but got {response[:3]}.")
 
         def send_and_receive(message: str, code: int = 250) -> None:
-            secure_socket.send(f"{message}\r\n".encode())
+            client_socket.send(f"{message}\r\n".encode())
             print(f"C: {message}")
             receive_message(code)
 
-        print(f"Connected to {mailserver} over TLS")
+        print(f"Connected to {mailserver}")
         receive_message(220)
 
-        # Send EHLO command (instead of HELO) and print server response.
-        # EHLO is more modern and used with TLS connections.
+        # Send EHLO command and print server response.
         send_and_receive("EHLO Alice")
 
-        # Send MAIL FROM command and print server response.
-        send_and_receive("MAIL FROM: <kum4th@theworld.com>")
+        # Request to start TLS and secure the connection.
+        send_and_receive("STARTTLS", 220)
 
-        # Send RCPT TO command and print server response.
-        send_and_receive("RCPT TO: <kum4th3w0rld@gmail.com>")
+        # Wrap the socket with SSL/TLS.
+        context = ssl.create_default_context()
+        with context.wrap_socket(
+            client_socket, server_hostname=mailserver
+        ) as secure_socket:
 
-        # Send DATA command and print server response.
-        send_and_receive("DATA", 354)
+            def secure_send_and_receive(message: str, code: int = 250) -> None:
+                secure_socket.send(f"{message}\r\n".encode())
+                print(f"C: {message}")
+                response = secure_socket.recv(bufsize).decode()
+                print(f"S: {response.rstrip()}")
+                if response[:3] != str(code):
+                    raise SMTPError(f"Expected code {code} but got {response[:3]}.")
 
-        # Send message data.
-        # Message ends with a single period.
-        send_and_receive("I love computer networks!\r\n.")
+            # Send EHLO again after securing the connection.
+            secure_send_and_receive("EHLO Alice")
 
-        # Send QUIT command and get server response.
-        send_and_receive("QUIT", 221)
+            # Encode username and password in base64 for SMTP AUTH
+            secure_send_and_receive("AUTH LOGIN", 334)
+            secure_send_and_receive(b64trans(username), 334)
+            secure_send_and_receive(b64trans(password), 235)
+
+            # Send MAIL FROM command and print server response.
+            secure_send_and_receive(f"MAIL FROM: <{username}>")
+
+            # Send RCPT TO command and print server response.
+            secure_send_and_receive(f"RCPT TO: <{username}>")
+
+            # Send DATA command and print server response.
+            secure_send_and_receive("DATA", 354)
+
+            # Send message data. Message ends with a single period.
+            secure_send_and_receive("I love computer networks!\r\n.")
+
+            # Send QUIT command and get server response.
+            secure_send_and_receive("QUIT", 221)
 
 
 if __name__ == "__main__":
