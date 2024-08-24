@@ -43,41 +43,33 @@ def main(bufsize: int = 1024) -> None:
         send_and_receive("STARTTLS", 220)
 
         # Wrap the socket with SSL/TLS.
+        # Note that client_socket is overwritten with an SSL/TLS socket.
         context = ssl.create_default_context()
         with context.wrap_socket(
             client_socket, server_hostname=mailserver
-        ) as secure_socket:
-
-            def secure_send_and_receive(message: str, code: int = 250) -> None:
-                secure_socket.send(f"{message}\r\n".encode())
-                print(f"C: {message}")
-                response = secure_socket.recv(bufsize).decode()
-                print(f"S: {response.rstrip()}")
-                if response[:3] != str(code):
-                    raise SMTPError(f"Expected code {code} but got {response[:3]}.")
-
+        ) as client_socket:
             # Send EHLO again after securing the connection.
-            secure_send_and_receive("EHLO Alice")
+            send_and_receive("EHLO Alice")
 
             # Encode username and password in base64 for SMTP AUTH
-            secure_send_and_receive("AUTH LOGIN", 334)
-            secure_send_and_receive(b64trans(username), 334)
-            secure_send_and_receive(b64trans(password), 235)
+            send_and_receive("AUTH LOGIN", 334)
+            send_and_receive(b64trans(username), 334)
+            send_and_receive(b64trans(password), 235)
 
             # Send MAIL FROM command and print server response.
-            secure_send_and_receive(f"MAIL FROM: <{username}>")
+            send_and_receive(f"MAIL FROM: <{username}>")
 
             # Send RCPT TO command and print server response.
-            secure_send_and_receive(f"RCPT TO: <{username}>")
+            send_and_receive(f"RCPT TO: <{username}>")
 
             # Send DATA command and print server response.
-            secure_send_and_receive("DATA", 354)
+            send_and_receive("DATA", 354)
 
             # Send message data. Message ends with a single period.
-            secure_send_and_receive("I love computer networks!\r\n.")
+            send_and_receive("I love computer networks!\r\n.")
 
             # Send QUIT command and get server response.
-            secure_send_and_receive("QUIT", 221)
+            send_and_receive("QUIT", 221)
 
 
 if __name__ == "__main__":
