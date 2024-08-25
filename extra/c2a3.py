@@ -43,7 +43,6 @@ def main(bufsize: int = 1024) -> None:
         send_and_receive("STARTTLS", 220)
 
         # Wrap the socket with SSL/TLS.
-        # Note that client_socket is overwritten with an SSL/TLS socket.
         context = ssl.create_default_context()
         with context.wrap_socket(
             client_socket, server_hostname=mailserver
@@ -51,7 +50,7 @@ def main(bufsize: int = 1024) -> None:
             # Send EHLO again after securing the connection.
             send_and_receive("EHLO Alice")
 
-            # Encode username and password in base64 for SMTP AUTH
+            # Authenticate using base64 encoded username and password
             send_and_receive("AUTH LOGIN", 334)
             send_and_receive(b64trans(username), 334)
             send_and_receive(b64trans(password), 235)
