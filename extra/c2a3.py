@@ -2,6 +2,7 @@ import base64
 import socket
 import ssl
 from os import environ
+from pathlib import Path
 
 
 class SMTPError(Exception):
@@ -19,7 +20,46 @@ def main(bufsize: int = 1024) -> None:
     username = environ["GMAIL_ADDRESS"]
     password = environ["GMAIL_PASSWORD"]
 
-    # Create socket connection
+    # Email details
+    subject = "Subject: Do you love computer networks?"
+    body = "I love computer networks!"
+    attachment = Path("extra/c2p22.png")
+
+    # Read and encode the attachment
+    with attachment.open("rb") as f:
+        encoded_file = base64.b64encode(f.read()).decode()
+
+    boundary = (
+        "----=_Part_0_123456789.123456789"  # Custom boundary for separating parts
+    )
+
+    # Construct the MIME message
+    message = "\r\n".join(
+        [
+            f"From: {username}",
+            f"To: {username}",
+            f"Subject: {subject}",
+            "MIME-Version: 1.0",
+            f'Content-Type: multipart/mixed; boundary="{boundary}"',
+            "",
+            f"--{boundary}",
+            'Content-Type: text/plain; charset="UTF-8"',
+            "Content-Transfer-Encoding: 7bit",
+            "",
+            body,
+            "",
+            f"--{boundary}",
+            f'Content-Type: application/octet-stream; name="{f.name}"',
+            f'Content-Disposition: attachment; filename="{f.name}"',
+            "Content-Transfer-Encoding: base64",
+            "",
+            encoded_file,
+            "",
+            f"--{boundary}--",
+            ".",
+        ]
+    )
+
     with socket.create_connection((mailserver, 587)) as client_socket:
 
         def receive_message(code: int = 250) -> None:
@@ -64,8 +104,8 @@ def main(bufsize: int = 1024) -> None:
             # Send DATA command and print server response.
             send_and_receive("DATA", 354)
 
-            # Send message data. Message ends with a single period.
-            send_and_receive("I love computer networks!\r\n.")
+            # Send the MIME email message.
+            send_and_receive(message)
 
             # Send QUIT command and get server response.
             send_and_receive("QUIT", 221)
