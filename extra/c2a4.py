@@ -1,4 +1,5 @@
 import socket
+from datetime import UTC, datetime
 
 import typer
 
@@ -14,9 +15,23 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
             with client_socket:
                 client_request = client_socket.recv(bufsize).decode()
                 print(client_request)
-                fileuri = client_request.split()[1]
-                _, _, host_n_file = fileuri.partition("://")
+
+                method, target, *_ = client_request.split()
+
+                # Pass the request if it is not a GET request
+                if method.lower() != "get":
+                    continue
+
+                # Inculde "If-Modified-Since" if it is not in the request
+                if "if-modified-since:" not in client_request.lower():
+                    now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
+                    client_request = (
+                        f"{client_request.rstrip()}\r\nIf-Modified-Since: {now}\r\n\r\n"
+                    )
+
+                _, _, host_n_file = target.partition("://")
                 print(f"{host_n_file=}")
+
                 try:
                     # Check wether the file exist in the cache
                     f = open(host_n_file)
