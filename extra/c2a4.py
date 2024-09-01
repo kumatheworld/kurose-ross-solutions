@@ -1,10 +1,12 @@
 import socket
 from datetime import UTC, datetime
+from pathlib import Path
 
 import typer
 
 
 def main(server_ip: str = "", bufsize: int = 1024) -> None:
+    cache_dir = Path(".cache")
     # Create a server socket, bind it to a port and start listening
     with socket.create_server((server_ip, 80)) as proxy_server_socket:
         while True:
@@ -18,47 +20,26 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
 
                 method, target, *_ = client_request.split()
 
-                # Pass the request if it is not a GET request
+                # TODO: Pass the request to the server if it is not a GET request
                 if method.lower() != "get":
                     continue
 
-                # Inculde "If-Modified-Since" if it is not in the request
-                if "if-modified-since:" not in client_request.lower():
+                _, _, host_n_file = target.partition("://")
+                cache_file = cache_dir / host_n_file
+
+                try:
+                    file = cache_file.open()
+                except FileNotFoundError:
+                    # TODO: Pass the request to the server, pass the response to the client and cache the file
+                    pass
+                else:
+                    file.close()
                     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
                     client_request = (
                         f"{client_request.rstrip()}\r\nIf-Modified-Since: {now}\r\n\r\n"
                     )
-
-                _, _, host_n_file = target.partition("://")
-                print(f"{host_n_file=}")
-
-                try:
-                    # Check wether the file exist in the cache
-                    f = open(host_n_file)
-                # Error handling for file not found in cache
-                except IOError:
-                    # Create a socket on the proxyserver and connect to the server port 80
-                    server_host, _, filename = host_n_file.partition("/")
-                    with socket.create_connection(
-                        (server_host, 80)
-                    ) as proxy_client_socket:
-                        # Request the file
-                        request = f"GET /{filename} HTTP/1.0\r\n\r\n"
-                        proxy_client_socket.send(request.encode())
-                        # If the file exists, cache it and send it to the client.
-                        # If it doesn't, return an error message.
-                        # The following is not correct and should be fixed.
-                        while server_response := proxy_client_socket.recv(
-                            bufsize
-                        ).decode():
-                            print(server_response, end="")
-                else:
-                    print("Read from cache")
-                    outputdata = f.readlines()
-                    f.close()
-                    # Send the file to the client
-                    # Fill in start.
-                    # Fill in end.
+                    # TODO: If the response status code is 304, return the cached file to the client
+                    # TODO: If not, pass the response to the client and cache the file
 
 
 if __name__ == "__main__":
