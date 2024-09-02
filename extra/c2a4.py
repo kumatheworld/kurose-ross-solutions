@@ -27,7 +27,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                 _, _, host_n_file = target.partition("://")
                 cache_file = cache_dir / host_n_file
 
-                server_host, _, filepath = host_n_file.partition("/")
+                server_host, _, _ = host_n_file.partition("/")
 
                 try:
                     file = cache_file.open()
