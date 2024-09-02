@@ -15,10 +15,10 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
             client_socket, addr = proxy_server_socket.accept()
             print("Received a connection from:", addr)
             with client_socket:
-                client_request = client_socket.recv(bufsize).decode()
-                print(client_request)
+                request = client_socket.recv(bufsize).decode()
+                print(request)
 
-                method, target, *_ = client_request.split()
+                method, target, *_ = request.split()
 
                 # TODO: Pass the request to the server if it is not a GET request
                 if method.lower() != "get":
@@ -35,10 +35,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                 else:
                     file.close()
                     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
-                    client_request = (
-                        f"{client_request.rstrip()}\r\nIf-Modified-Since: {now}\r\n\r\n"
-                    )
-                    # TODO: If the response status code is 304, return the cached file to the client
+                    request = f"{request.rstrip()}\r\nIf-Modified-Since: {now}\r\n\r\n"
                     # TODO: If not, pass the response to the client and cache the file
 
 
