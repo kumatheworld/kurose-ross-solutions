@@ -18,7 +18,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                 request = client_socket.recv(bufsize).decode()
                 print(request)
 
-                method, target, *_ = request.split()
+                method, target, _ = request.split(maxsplit=2)
 
                 # TODO: Pass the request to the server if it is not a GET request
                 if method.lower() != "get":
