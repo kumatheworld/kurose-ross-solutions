@@ -9,6 +9,20 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
     cache_dir = Path(".cache")
     # Create a server socket, bind it to a port and start listening
     with socket.create_server((server_ip, 80)) as proxy_server_socket:
+
+        def send_and_save(
+            first_response: str, proxy_client_socket: socket.socket, cache_file: Path
+        ) -> None:
+            cache_file.parent.mkdir(parents=True)
+            _, first_body, _ = first_response.rsplit("\r\n", maxsplit=2)
+            first_body_bytes = first_body.encode()
+            with cache_file.open("wb") as f:
+                proxy_server_socket.send(first_body_bytes)
+                f.write(first_body_bytes)
+                while response := proxy_client_socket.recv(bufsize):
+                    proxy_server_socket.send(response)
+                    f.write(response)
+
         while True:
             # Strat receiving data from the client
             print("Ready to serve...")
@@ -32,8 +46,11 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                 try:
                     file = cache_file.open()
                 except FileNotFoundError:
-                    # TODO: Pass the request to the server, pass the response to the client and cache the file
-                    pass
+                    with socket.create_connection(
+                        (server_host, 80)
+                    ) as proxy_client_socket:
+                        response = proxy_client_socket.recv(bufsize).decode()
+                        send_and_save(response, proxy_client_socket, cache_file)
                 else:
                     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
                     request = f"{request.rstrip()}\r\nIf-Modified-Since: {now}\r\n\r\n"
@@ -51,8 +68,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                             file.close()
                             proxy_server_socket.send("\r\n".encode())
                         else:
-                            # TODO: If the file is modified, pass the response to the client and cache the file
-                            pass
+                            send_and_save(response, proxy_client_socket, cache_file)
 
 
 if __name__ == "__main__":
