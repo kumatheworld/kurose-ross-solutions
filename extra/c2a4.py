@@ -49,6 +49,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                     with socket.create_connection(
                         (server_host, 80)
                     ) as proxy_client_socket:
+                        proxy_client_socket.send(request.encode())
                         response = proxy_client_socket.recv(bufsize).decode()
                         send_and_save(response, proxy_client_socket, cache_file)
                 else:
@@ -58,6 +59,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                     with socket.create_connection(
                         (server_host, 80)
                     ) as proxy_client_socket:
+                        client_socket.send(request.encode())
                         response = proxy_client_socket.recv(bufsize).decode()
                         _, status_code, _ = response.split(maxsplit=2)
                         if status_code == "304":
