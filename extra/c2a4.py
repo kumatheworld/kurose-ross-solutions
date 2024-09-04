@@ -13,7 +13,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
         def send_and_save(
             first_response: str, proxy_client_socket: socket.socket, cache_file: Path
         ) -> None:
-            cache_file.parent.mkdir(parents=True)
+            cache_file.parent.mkdir(parents=True, exist_ok=True)
             _, first_body, _ = first_response.rsplit("\r\n", maxsplit=2)
             first_body_bytes = first_body.encode()
             with cache_file.open("wb") as f:
