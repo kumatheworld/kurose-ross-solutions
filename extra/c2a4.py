@@ -11,14 +11,13 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
     with socket.create_server((server_ip, 80)) as proxy_server_socket:
 
         def send_and_save(
-            first_response: str, proxy_client_socket: socket.socket, cache_file: Path
+            first_response: bytes, proxy_client_socket: socket.socket, cache_file: Path
         ) -> None:
             cache_file.parent.mkdir(parents=True, exist_ok=True)
-            _, first_body, _ = first_response.rsplit("\r\n", maxsplit=2)
-            first_body_bytes = first_body.encode()
+            _, first_body, _ = first_response.rsplit(b"\r\n", maxsplit=2)
             with cache_file.open("wb") as f:
-                proxy_server_socket.send(first_body_bytes)
-                f.write(first_body_bytes)
+                proxy_server_socket.send(first_body)
+                f.write(first_body)
                 while response := proxy_client_socket.recv(bufsize):
                     proxy_server_socket.send(response)
                     f.write(response)
@@ -50,7 +49,7 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                         (server_host, 80)
                     ) as proxy_client_socket:
                         proxy_client_socket.send(request.encode())
-                        response = proxy_client_socket.recv(bufsize).decode()
+                        response = proxy_client_socket.recv(bufsize)
                         send_and_save(response, proxy_client_socket, cache_file)
                 else:
                     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
@@ -60,8 +59,8 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                         (server_host, 80)
                     ) as proxy_client_socket:
                         client_socket.send(request.encode())
-                        response = proxy_client_socket.recv(bufsize).decode()
-                        _, status_code, _ = response.split(maxsplit=2)
+                        response = proxy_client_socket.recv(bufsize)
+                        _, status_code, _ = response.split(b"\r\n", maxsplit=2)
                         if status_code == "304":
                             proxy_server_socket.send("HTTP/1.0 200 OK\r\n\r\n".encode())
                             for line in file:
