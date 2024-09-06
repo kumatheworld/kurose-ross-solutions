@@ -25,10 +25,8 @@ def send_and_save(
 def main(server_ip: str = "", bufsize: int = 1024) -> None:
     cache_dir = Path(".cache")
 
-    # Create a server socket, bind it to a port and start listening
     with socket.create_server((server_ip, 80)) as proxy_server_socket:
         while True:
-            # Strat receiving data from the client
             print("Ready to serve...")
             connection_socket, addr = proxy_server_socket.accept()
             print("Received a connection from:", addr)
