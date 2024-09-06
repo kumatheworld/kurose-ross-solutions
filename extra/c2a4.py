@@ -5,30 +5,35 @@ from pathlib import Path
 import typer
 
 
+def send_and_save(
+    first_response: bytes,
+    connection_socket: socket.socket,
+    proxy_client_socket: socket.socket,
+    cache_file: Path,
+    bufsize: int,
+) -> None:
+    cache_file.parent.mkdir(parents=True, exist_ok=True)
+    _, first_body, _ = first_response.rsplit(b"\r\n", maxsplit=2)
+    with cache_file.open("wb") as f:
+        connection_socket.send(first_body)
+        f.write(first_body)
+        while response := proxy_client_socket.recv(bufsize):
+            connection_socket.send(response)
+            f.write(response)
+
+
 def main(server_ip: str = "", bufsize: int = 1024) -> None:
     cache_dir = Path(".cache")
+
     # Create a server socket, bind it to a port and start listening
     with socket.create_server((server_ip, 80)) as proxy_server_socket:
-
-        def send_and_save(
-            first_response: bytes, proxy_client_socket: socket.socket, cache_file: Path
-        ) -> None:
-            cache_file.parent.mkdir(parents=True, exist_ok=True)
-            _, first_body, _ = first_response.rsplit(b"\r\n", maxsplit=2)
-            with cache_file.open("wb") as f:
-                proxy_server_socket.send(first_body)
-                f.write(first_body)
-                while response := proxy_client_socket.recv(bufsize):
-                    proxy_server_socket.send(response)
-                    f.write(response)
-
         while True:
             # Strat receiving data from the client
             print("Ready to serve...")
-            client_socket, addr = proxy_server_socket.accept()
+            connection_socket, addr = proxy_server_socket.accept()
             print("Received a connection from:", addr)
-            with client_socket:
-                request = client_socket.recv(bufsize).decode()
+            with connection_socket:
+                request = connection_socket.recv(bufsize).decode()
                 print(request)
 
                 method, target, _ = request.split(maxsplit=2)
@@ -50,7 +55,13 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                     ) as proxy_client_socket:
                         proxy_client_socket.send(request.encode())
                         response = proxy_client_socket.recv(bufsize)
-                        send_and_save(response, proxy_client_socket, cache_file)
+                        send_and_save(
+                            response,
+                            connection_socket,
+                            proxy_client_socket,
+                            cache_file,
+                            bufsize,
+                        )
                 else:
                     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
                     request = f"{request.rstrip()}\r\nIf-Modified-Since: {now}\r\n\r\n"
@@ -69,7 +80,13 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                             file.close()
                             proxy_server_socket.send("\r\n".encode())
                         else:
-                            send_and_save(response, proxy_client_socket, cache_file)
+                            send_and_save(
+                                response,
+                                connection_socket,
+                                proxy_client_socket,
+                                cache_file,
+                                bufsize,
+                            )
 
 
 if __name__ == "__main__":
