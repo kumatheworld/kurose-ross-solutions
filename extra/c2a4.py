@@ -13,7 +13,7 @@ def send_and_save(
     bufsize: int,
 ) -> None:
     cache_file.parent.mkdir(parents=True, exist_ok=True)
-    _, first_body, _ = first_response.rsplit(b"\r\n", maxsplit=2)
+    _, _, first_body = first_response.partition(b"\r\n\r\n")
     with cache_file.open("wb") as f:
         connection_socket.send(first_body)
         f.write(first_body)
