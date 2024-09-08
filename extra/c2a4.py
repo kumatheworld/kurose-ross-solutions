@@ -14,9 +14,11 @@ def send_and_save(
 ) -> None:
     cache_file.parent.mkdir(parents=True, exist_ok=True)
     _, _, first_body = first_response.partition(b"\r\n\r\n")
+    # TODO: Take encoding into account
     with cache_file.open("wb") as f:
         connection_socket.send(first_body)
         f.write(first_body)
+        # TODO: Stop receiving data appropriately
         while response := proxy_client_socket.recv(bufsize):
             connection_socket.send(response)
             f.write(response)
