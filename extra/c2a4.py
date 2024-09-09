@@ -43,9 +43,12 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                     continue
 
                 _, _, host_n_file = target.partition("://")
-                cache_file = cache_dir / host_n_file
+                server_host, _, filename = host_n_file.partition("/")
+                if filename == "":
+                    # TODO: Cache the file with appropriate name
+                    continue
 
-                server_host, _, _ = host_n_file.partition("/")
+                cache_file = cache_dir / host_n_file
 
                 try:
                     file = cache_file.open()
