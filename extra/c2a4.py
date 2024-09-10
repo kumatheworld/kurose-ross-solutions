@@ -1,8 +1,12 @@
+import gzip
 import socket
 from datetime import UTC, datetime
 from pathlib import Path
 
 import typer
+
+# TODO: Take all the possible encodings into account
+converters = {b"": lambda x: x, b"gzip": gzip.decompress}
 
 
 def send_and_save(
@@ -13,13 +17,22 @@ def send_and_save(
     bufsize: int,
 ) -> None:
     cache_file.parent.mkdir(parents=True, exist_ok=True)
-    _, _, first_body = first_response.partition(b"\r\n\r\n")
-    # TODO: Take encoding into account
+    first_header, _, first_body = first_response.partition(b"\r\n\r\n")
+
+    encoding = b""
+    encoding_id = first_header.lower().find(b"content-encoding:")
+    if encoding_id > 0:
+        encoding_line, _, _ = first_header[encoding_id:].partition(b"\r\n")
+        _, encoding, *_ = encoding_line.split(maxsplit=2)
+        encoding = encoding.lower()
+    convert = converters[encoding]
+
+    first_body = convert(first_body)
     with cache_file.open("wb") as f:
         connection_socket.send(first_body)
         f.write(first_body)
         # TODO: Stop receiving data appropriately
-        while response := proxy_client_socket.recv(bufsize):
+        while response := convert(proxy_client_socket.recv(bufsize)):
             connection_socket.send(response)
             f.write(response)
 
