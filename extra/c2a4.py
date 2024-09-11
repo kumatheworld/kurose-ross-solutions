@@ -89,12 +89,12 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                         response = proxy_client_socket.recv(bufsize)
                         _, status_code, _ = response.split(b"\r\n", maxsplit=2)
                         if status_code == "304":
-                            proxy_server_socket.send("HTTP/1.0 200 OK\r\n\r\n".encode())
+                            connection_socket.send("HTTP/1.0 200 OK\r\n\r\n".encode())
                             for line in file:
                                 line_crlf = line.rstrip("\n") + "\r\n"
-                                proxy_server_socket.send(line_crlf.encode())
+                                connection_socket.send(line_crlf.encode())
                             file.close()
-                            proxy_server_socket.send("\r\n".encode())
+                            connection_socket.send("\r\n".encode())
                         else:
                             send_and_save(
                                 response,
