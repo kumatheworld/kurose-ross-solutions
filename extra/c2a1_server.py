@@ -7,20 +7,20 @@ def send_data(connection_socket: socket.socket, bufsize: int) -> None:
         message = connection_socket.recv(bufsize).decode()
         filename = message.split()[1]
         try:
-            file = open(filename[1:])
+            file = open(filename[1:], "rb")
         except FileNotFoundError:
             # Send response message for file not found
-            connection_socket.send("404 Not Found\r\n".encode())
+            connection_socket.send(b"404 Not Found\r\n")
         else:
             # Send one HTTP header line into socket
-            connection_socket.send("HTTP/1.0 200 OK\r\n\r\n".encode())
+            connection_socket.send(b"HTTP/1.0 200 OK\r\n\r\n")
             # Send the content of the requested file to the client
             for line in file:
-                line_crlf = line.rstrip("\n") + "\r\n"
-                connection_socket.send(line_crlf.encode())
+                line_crlf = line.rstrip(b"\n") + b"\r\n"
+                connection_socket.send(line_crlf)
             file.close()
         finally:
-            connection_socket.send("\r\n".encode())
+            connection_socket.send(b"\r\n")
 
 
 def main(server_port: int = 80, bufsize: int = 1024) -> None:
