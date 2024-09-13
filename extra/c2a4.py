@@ -46,30 +46,30 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
             connection_socket, addr = proxy_server_socket.accept()
             print("Received a connection from:", addr)
             with connection_socket:
-                request = connection_socket.recv(bufsize).decode()
+                request = connection_socket.recv(bufsize)
                 print(request)
 
                 method, target, _ = request.split(maxsplit=2)
 
                 # TODO: Pass the request to the server if it is not a GET request
-                if method.lower() != "get":
+                if method.lower() != b"get":
                     continue
 
-                _, _, host_n_file = target.partition("://")
-                server_host, _, filename = host_n_file.partition("/")
+                _, _, host_n_file = target.partition(b"://")
+                server_host, _, filename = host_n_file.partition(b"/")
                 if filename == "":
                     # TODO: Cache the file with appropriate name
                     continue
 
-                cache_file = cache_dir / host_n_file
+                cache_file = cache_dir / host_n_file.decode()
 
                 try:
                     file = cache_file.open("rb")
                 except FileNotFoundError:
                     with socket.create_connection(
-                        (server_host, 80)
+                        (server_host.decode(), 80)
                     ) as proxy_client_socket:
-                        proxy_client_socket.send(request.encode())
+                        proxy_client_socket.send(request)
                         response = proxy_client_socket.recv(bufsize)
                         send_and_save(
                             response,
@@ -80,12 +80,12 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                         )
                 else:
                     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
-                    request = f"{request.rstrip()}\r\nIf-Modified-Since: {now}\r\n\r\n"
+                    request = f"{request.rstrip().decode()}\r\nIf-Modified-Since: {now}\r\n\r\n".encode()
 
                     with socket.create_connection(
-                        (server_host, 80)
+                        (server_host.decode(), 80)
                     ) as proxy_client_socket:
-                        proxy_client_socket.send(request.encode())
+                        proxy_client_socket.send(request)
                         response = proxy_client_socket.recv(bufsize)
                         _, status_code, _ = response.split(maxsplit=2)
                         if status_code == b"304":
