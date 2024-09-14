@@ -80,8 +80,10 @@ def main(server_ip: str = "", bufsize: int = 1024) -> None:
                         )
                 else:
                     now = datetime.now(UTC).strftime("%a, %d %b %Y %H:%M:%S GMT")
-                    request = f"{request.rstrip().decode()}\r\nIf-Modified-Since: {now}\r\n\r\n".encode()
-
+                    request = b"%b\r\nIf-Modified-Since: %b\r\n\r\n" % (
+                        request.rstrip(),
+                        str(now).encode(),
+                    )
                     with socket.create_connection(
                         (server_host.decode(), 80)
                     ) as proxy_client_socket:
