@@ -17,12 +17,12 @@ def send_and_save(
     bufsize: int,
 ) -> None:
     cache_file.parent.mkdir(parents=True, exist_ok=True)
-    first_header, _, first_body = first_response.partition(b"\r\n\r\n")
+    header, _, first_body = first_response.partition(b"\r\n\r\n")
 
     encoding = b""
-    encoding_id = first_header.lower().find(b"content-encoding:")
+    encoding_id = header.lower().find(b"content-encoding:")
     if encoding_id > 0:
-        encoding_line, _, _ = first_header[encoding_id:].partition(b"\r\n")
+        encoding_line, _, _ = header[encoding_id:].partition(b"\r\n")
         _, encoding, *_ = encoding_line.split(maxsplit=2)
         encoding = encoding.lower()
     convert = converters[encoding]
