@@ -17,24 +17,31 @@ def send_and_save(
     bufsize: int,
 ) -> None:
     cache_file.parent.mkdir(parents=True, exist_ok=True)
+    # TODO: What if header is longer than the first response?
     header, _, first_body = first_response.partition(b"\r\n\r\n")
 
     encoding = b""
-    encoding_id = header.lower().find(b"content-encoding:")
-    if encoding_id > 0:
-        encoding_line, _, _ = header[encoding_id:].partition(b"\r\n")
-        _, encoding, *_ = encoding_line.split(maxsplit=2)
-        encoding = encoding.lower()
-    convert = converters[encoding]
+    remaining = 0
+    for line in header.lower().split(b"\r\n"):
+        key, _, value = line.partition(b":")
+        match key:
+            case b"content-encoding":
+                encoding = value.strip()
+            # TODO: What if Content-Length is missing?
+            case b"content-length":
+                remaining = int(value.strip())
 
-    first_body = convert(first_body)
+    chunk_org = first_body
+    convert = converters[encoding]
     with cache_file.open("wb") as f:
-        connection_socket.send(first_body)
-        f.write(first_body)
-        # TODO: Stop receiving data appropriately
-        while response := convert(proxy_client_socket.recv(bufsize)):
-            connection_socket.send(response)
-            f.write(response)
+        while True:
+            remaining -= len(chunk_org)
+            chunk = convert(chunk_org)
+            connection_socket.send(chunk)
+            f.write(chunk)
+            if not remaining:
+                break
+            chunk_org = proxy_client_socket.recv(bufsize)
 
 
 def main(server_ip: str = "", bufsize: int = 1024) -> None:
