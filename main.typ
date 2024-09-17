@@ -431,7 +431,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 == Wireshark Lab: HTTP
 #set enum(numbering: "1.")
 + Both of the client and server used HTTP 1.1. The request included `GET /wireshark-labs/HTTP-wireshark-file1.html HTTP/1.1\r\n` while the response included `HTTP/1.1 304 Not Modified\r\n`.
-+
++ English as in `Accept-Language: en\r\n` from the request.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
