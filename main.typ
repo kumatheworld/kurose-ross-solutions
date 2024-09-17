@@ -426,6 +426,8 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 #link("extra/c2a2_server.py") and #link("extra/c2a2_client.py") implement UDP Ping including the optional exercises.
 === Assignment 3: Mail Client
 #link("extra/c2a3.py") is a program that sends an email from a Gmail account to itself. Note that the address and password have to be set as environment variables.
+=== Assignment 4: Web Proxy
+#link("extra/c2a4.py") implements an HTTP proxy server.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
