@@ -432,6 +432,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 #set enum(numbering: "1.")
 + Both of the client and server used HTTP 1.1. The request included `GET /wireshark-labs/HTTP-wireshark-file1.html HTTP/1.1\r\n` while the response included `HTTP/1.1 304 Not Modified\r\n`.
 + English as in `Accept-Language: en\r\n` from the request.
++ The IP address of my computer and the server are 10.15.14.27 and 128.119.245.12 respectively as Wireshark shows `Internet Protocol Version 4, Src: 10.15.14.27, Dst: 128.119.245.12` in the request.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
