@@ -428,6 +428,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 #link("extra/c2a3.py") is a program that sends an email from a Gmail account to itself. Note that the address and password have to be set as environment variables.
 === Assignment 4: Web Proxy
 #link("extra/c2a4.py") implements an HTTP proxy server.
+== Wireshark Lab: HTTP
+#set enum(numbering: "1.")
++ Both of the client and server used HTTP 1.1. The request included `GET /wireshark-labs/HTTP-wireshark-file1.html HTTP/1.1\r\n` while the response included `HTTP/1.1 304 Not Modified\r\n`.
++
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
