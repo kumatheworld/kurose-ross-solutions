@@ -434,6 +434,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + English as in `Accept-Language: en\r\n` from the request.
 + The IP address of my computer and the server are 10.15.14.27 and 128.119.245.12 respectively as Wireshark shows `Internet Protocol Version 4, Src: 10.15.14.27, Dst: 128.119.245.12` in the request.
 + 304 as in `HTTP/1.1 304 Not Modified\r\n` from the response.
++ It is not shown as the response status code was 304. It is before Tue, 17 Sep 2024 05:59:01 GMT because the request included `If-Modified-Since: Tue, 17 Sep 2024 05:59:01 GMT\r\n`.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
