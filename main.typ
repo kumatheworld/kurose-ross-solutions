@@ -436,6 +436,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + 304 as in `HTTP/1.1 304 Not Modified\r\n` from the response.
 + It is not shown as the response status code was 304. It is before Tue, 17 Sep 2024 05:59:01 GMT because the request included `If-Modified-Since: Tue, 17 Sep 2024 05:59:01 GMT\r\n`.
 + Wireshark shows 293 bytes.
++ All the headers within the data were displayed in the packet-listing window.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
