@@ -437,6 +437,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + It is not shown as the response status code was 304. It is before Tue, 17 Sep 2024 05:59:01 GMT because the request included `If-Modified-Since: Tue, 17 Sep 2024 05:59:01 GMT\r\n`.
 + Wireshark shows 293 bytes.
 + All the headers within the data were displayed in the packet-listing window.
++ No, `If-Modified-Since` was not included in the request.
++ Yes, the server explicitly return the contents of the file because the text data was included in the response.
++ Yes, the request had the following line: `If-Modified-Since: Wed, 18 Sep 2024 05:59:02 GMT\r\n`. The request was made around Wed, 18 Sep 2024 21:00 GMT.
++ The status code was 304. The server did not explicitly return the content of the file because the text data was not included in the response.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
