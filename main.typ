@@ -441,6 +441,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + Yes, the server explicitly return the contents of the file because the text data was included in the response.
 + Yes, the request had the following line: `If-Modified-Since: Wed, 18 Sep 2024 05:59:02 GMT\r\n`. The request was made around Wed, 18 Sep 2024 21:00 GMT.
 + The status code was 304. The server did not explicitly return the content of the file because the text data was not included in the response.
++ The browser just sent 1 HTTP GET request message. Packet number 245 contained the GET message for the Bill or Rights.
++ Packet number 247 contained the status code and phrase associated with the response to the HTTP GET request.
++ HTTP/1.1 200 OK.
++ Four segments were needed to carry the single HTTP response and the text of the Bill of Rights.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
