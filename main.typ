@@ -445,6 +445,8 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + Packet number 247 contained the status code and phrase associated with the response to the HTTP GET request.
 + HTTP/1.1 200 OK.
 + Four segments were needed to carry the single HTTP response and the text of the Bill of Rights.
++ Three HTTP GET request messages were sent by the browser. Two GET requests `GET /wireshark-labs/HTTP-wireshark-file4.html HTTP/1.1` and `GET /pearson.png HTTP/1.1` were sent to `128.119.245.12`. The other GET request `GET /8E_cover_small.jpg HTTP/1.1` was sent to `178.79.137.164`.
++ The browser downloaded the two images in parallel because it got the response from `https://kurose.cslash.net` first whereas the first request was sent to `http://gaia.cs.umass.edu`.
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
