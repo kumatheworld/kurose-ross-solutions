@@ -449,6 +449,12 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The browser downloaded the two images in parallel because it got the response from `https://kurose.cslash.net` first whereas the first request was sent to `http://gaia.cs.umass.edu`.
 + HTTP/1.1 401 Unauthorized  (text/html).
 + `Cache-Control: max-age=0` and `Authorization: Basic d2lyZXNoYXJrLXN0dWRlbnRzOm5ldHdvcms=` were added. The latter was decoded to `Credentials: wireshark-students:network`.
+== Wireshark Lab: DNS
++ It is 103.21.124.133, shown by running `nslookup www.iitb.ac.in`.
++ It is 103.21.125.129, shown by first running `nslookup -type=NS www.iitb.ac.in` and then running `nslookup dns3.iitb.ac.in`. The first command output showed the DNS server name dns1.iitb.ac.in.
++ It came from a non-authoritative server.
++ dns3.iitb.ac.in was the name of the first authoritative server returned by `nslookup iitb.ac.in`. I would run `nslookup dns3.iitb.ac.in` to find the IP address.
+
 = Transport Layer
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
