@@ -361,7 +361,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
       [Root], [h.root-servers.net], [198.97.190.53],
       [TLD], [g.dns.jp], [203.119.40.1],
       [Authoritative], [dns-x.sinet.ad.jp], [150.100.18.10],
-      [Authoritative], [dns3.nc.u-tokyo.ac.jp ], [157.82.0.1],
+      [Authoritative], [dns3.nc.u-tokyo.ac.jp], [157.82.0.1],
       [Authoritative], [ns2.s.u-tokyo.ac.jp], [3.114.219.198],
     )
     Finally, the last authoritative server had `CNAME	ut-is.github.io`, for which `nslookup` returned four IP addresses.
