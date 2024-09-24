@@ -454,6 +454,22 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + It is 103.21.125.129, shown by first running `nslookup -type=NS www.iitb.ac.in` and then running `nslookup dns3.iitb.ac.in`. The first command output showed the DNS server name dns1.iitb.ac.in.
 + It came from a non-authoritative server.
 + dns3.iitb.ac.in was the name of the first authoritative server returned by `nslookup iitb.ac.in`. I would run `nslookup dns3.iitb.ac.in` to find the IP address.
++ The packet number in the trace for the first DNS query message was 213. It was sent over UDP.
++ The packet number of the corresponding DNS response was 223. It was sent over UDP.
++ The destination port for the DNS query message and the source port of the DNS response message were both 53.
++ The DNS query message sent to 8.8.8.8.
++ The DNS query message contained one query and no question.
++ The DNS response message contained one query and one question.
++ The packet numbers are as follows. Only one DNS query of type A was sent to gaia.cs.umass.edu because of DNS caching.
+  #table(
+    columns: 2,
+    table.header[*Message*][*Packet Number*],
+    [Initial HTTP GET request for the base file http://gaia.cs.umass.edu/kurose_ross/], [236],
+    [DNS query made to resolve gaia.cs.umass.edu], [213],
+    [Received DNS response], [223],
+    [HTTP GET request for the image object http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E2.jpg], [486],
+    [DNS query made to resolve gaia.cs.umass.edu so that this second HTTP request can be sent to the gaia.cs.umass.edu IP address], [213],
+  )
 
 = Transport Layer
 = The Network Layer: Data Plane
