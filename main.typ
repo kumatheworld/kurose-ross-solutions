@@ -470,6 +470,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
     [HTTP GET request for the image object http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E2.jpg], [486],
     [DNS query made to resolve gaia.cs.umass.edu so that this second HTTP request can be sent to the gaia.cs.umass.edu IP address], [213],
   )
++ The destination port for the DNS query message and the source port of the DNS response message were both 53.
++ The DNS query message sent to 8.8.8.8. It is the IP address of my default local DNS server as another command `scutil --dns` shows.
++ The type of DNS query is A. The query message does not contain any answers.
++ The DNS response message contained one query and one question.
 
 = Transport Layer
 = The Network Layer: Data Plane
