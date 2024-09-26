@@ -474,6 +474,9 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The DNS query message sent to 8.8.8.8. It is the IP address of my default local DNS server as another command `scutil --dns` shows.
 + The type of DNS query is A. The query message does not contain any answers.
 + The DNS response message contained one query and one question.
++ The DNS query message sent to 128.119.8.148. It is not the IP address of my default local DNS server.
++ The DNS query message contained one query and no question.
++ The DNS response message was not found. The nslookup command showed the following error: `connection timed out; no servers could be reached`.
 
 = Transport Layer
 = The Network Layer: Data Plane
