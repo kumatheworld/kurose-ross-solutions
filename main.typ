@@ -479,6 +479,12 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The DNS response message was not found. The nslookup command showed the following error: `connection timed out; no servers could be reached`.
 
 = Transport Layer
+== Review Questions
+#show: enumb.with(pref: "R")
++
+  + The simplest possible transport layer protocol would be similar to UDP with the header format of a 4-byte destination port field and a 2-byte length field. Note that the checksum field would not be necessary as the underlying network is assumed reliable.
+  + A 4-byte source port field would be included in the header.
+  + No, just as UDP does not.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
