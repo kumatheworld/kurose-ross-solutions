@@ -485,6 +485,9 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + The simplest possible transport layer protocol would be similar to UDP with the header format of a 4-byte destination port field and a 2-byte length field. Note that the checksum field would not be necessary as the underlying network is assumed reliable.
   + A 4-byte source port field would be included in the header.
   + No, just as UDP does not.
++
+  + The sending delegates would make sure that each letter has the sender name and the reciever name in it. The receiving delegates would deliver letters to the family members based on the receiver names. Since it is assumed that each family has six members, assigning an integer from 0 to 5 to each family member ahead of time would also work. 
+  + No, just as TCP and UCP do not.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
