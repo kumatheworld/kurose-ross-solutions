@@ -489,6 +489,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + The sending delegates would make sure that each letter has the sender name and the reciever name in it. The receiving delegates would deliver letters to the family members based on the receiver names. Since it is assumed that each family has six members, assigning an integer from 0 to 5 to each family member ahead of time would also work. 
   + No, just as TCP and UCP do not.
 + The source and destination port numbers for the segments traveling from Host B to Host A are y and x respectively.
++ An application developer might choose to run an application over UDP rather than TCP because they might not want everything that TCP offers. For example, if the application protocol needs a few packets to exchange, they might want to implement a simple reliable transport scheme on top of UDP to get around potentially heavy TCP workloads like congestion control.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
