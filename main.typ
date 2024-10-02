@@ -491,6 +491,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The source and destination port numbers for the segments traveling from Host B to Host A are y and x respectively.
 + An application developer might choose to run an application over UDP rather than TCP because they might not want everything that TCP offers. For example, if the application protocol needs a few packets to exchange, they might want to implement a simple reliable transport scheme on top of UDP to get around potentially heavy TCP workloads like congestion control.
 + It is because voice or video applications need real-time communication and can accept some packet losses that their traffic is often sent over TCP rather than UDP in today's Internet.
++ The application can implement reliable dara transer on its own on top of UDP.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
