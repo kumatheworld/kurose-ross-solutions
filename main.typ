@@ -493,6 +493,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + It is because voice or video applications need real-time communication and can accept some packet losses that their traffic is often sent over TCP rather than UDP in today's Internet.
 + The application can implement reliable dara transer on its own on top of UDP.
 + The process at Host C will know that these two segments originated from two different hosts by looking at the source IP address field of the datagrams.
++ The requests from Host A are being sent to a different socket from those from Host B since a new socket is assinged after creating a connection based on the source IP address. Both of the sockets on Host C have port 80.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
