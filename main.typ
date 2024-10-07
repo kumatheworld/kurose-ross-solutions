@@ -496,6 +496,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The requests from Host A are being sent to a different socket from those from Host B since a new socket is assinged after creating a connection based on the source IP address. Both of the sockets on Host C have port 80.
 + We needed to introduce sequence numbers because the ACK or NAK packet could be corrupted.
 + We needed to introduce timers for the sender to retransmit packets whose ACKs have not arrived in time.
++ Yes, a timer would still be necessary in protocol rdt 3.0 because the sender would have to wait for an RTT to retransmit a packet.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
