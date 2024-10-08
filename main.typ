@@ -497,6 +497,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + We needed to introduce sequence numbers because the ACK or NAK packet could be corrupted.
 + We needed to introduce timers for the sender to retransmit packets whose ACKs have not arrived in time.
 + Yes, a timer would still be necessary in protocol rdt 3.0 because the sender would have to wait for an RTT to retransmit a packet.
++
+  + All five packets got retransmitted.
+  + All five packets got delivered without any retransmission.
+  + The sixth packets could not be sent as the sending window was limited to 5.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
