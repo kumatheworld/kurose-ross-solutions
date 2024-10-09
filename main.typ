@@ -501,6 +501,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + All five packets got retransmitted.
   + All five packets got delivered without any retransmission.
   + The sixth packets could not be sent as the sending window was limited to 5.
++ When a packet is lost before reaching the destination, Go-Back-N retransmits all of the packets in the sending window whereas Selective Repeat only retransmits the lost packet. When an ACK packet is lost, Go-Back-N does not retransmit any packet whereas Selective Repeat retransmits all of the packets in the sending window. The corresponding simulation results were as follows:
+  + Only the first packet got retransmitted.
+  + All five packets got retransmitted.
+  + The sixth packets could not be sent as the sending window was limited to 5.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
