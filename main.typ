@@ -505,6 +505,11 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Only the first packet got retransmitted.
   + All five packets got retransmitted.
   + The sixth packets could not be sent as the sending window was limited to 5.
++
+  + False. Piggyback is only for efficiency.
+  + False. However, the size of the receiver's buffer never changes.
+  + True. The number of unacknowleged bytes that A sends cannot exceed the size of the receiver's window size, which is smaller than the receive buffer.
+  + False. The sequence number of the subsequent segment will be $m$ plus the number of bytes in the current segment.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
