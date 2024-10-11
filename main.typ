@@ -510,6 +510,9 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + False. However, the size of the receiver's buffer never changes.
   + True. The number of unacknowleged bytes that A sends cannot exceed the size of the receiver's window size, which is smaller than the receive buffer.
   + False. The sequence number of the subsequent segment will be $m$ plus the number of bytes in the current segment.
+  + True. The 16-bit receive window field is it.
+  + Skipped for now.
+  + True. The acknowledgment number is the sequence number of the segment sent to Host B plus the number of data bytes.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
