@@ -511,7 +511,12 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + True. The number of unacknowleged bytes that A sends cannot exceed the size of the receiver's window size, which is smaller than the receive buffer.
   + False. The sequence number of the subsequent segment will be $m$ plus the number of bytes in the current segment.
   + True. The 16-bit receive window field is it.
-  + Skipped for now.
+  + True, if the parameter $beta$ in the formula is the recommended value $1\/4$. Given the sample RTT $S "[sec]"$, previous estimated RTT $E "[sec]"$, and previous estimated deviation $D "[sec]"$ of RTT, the newly estimated RTT $E' "[sec]"$ and deviation $D "[sec]"$ are given by the following:
+    $ E'=(1-alpha)E+alpha S $
+    $ D'=(1-beta)D+beta|S-E| $
+    When $S=1$, $beta=1\/4$ and $E<1$, the timeout interval $T' "[sec]"$ is proved greater than or equal to 1:
+    $ T'=E'+4D'=(1-alpha)E+alpha+3D+|1-E|>=(1-alpha)E+alpha+(1-E)=1+alpha(1-E)>=1 $
+    It is clear that $T'>=E'>=1$ when $E>=1$.
   + True. The acknowledgment number is the sequence number of the segment sent to Host B plus the number of data bytes.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
