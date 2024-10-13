@@ -518,6 +518,9 @@ My experimental result is saved as #link("extra/c1w.pcapng").
     $ T'=E'+4D'=(1-alpha)E+alpha+3D+|1-E|>=(1-alpha)E+alpha+(1-E)=1+alpha(1-E)>=1 $
     It is clear that $T'>=E'>=1$ when $E>=1$.
   + True. The acknowledgment number is the sequence number of the segment sent to Host B plus the number of data bytes.
++
+  + $110-90=20$ bytes.
+  + The acknowledgement number will be 90, which Host B will know during the 3-way handshake.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
