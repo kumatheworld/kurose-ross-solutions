@@ -521,6 +521,10 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 +
   + $110-90=20$ bytes.
   + The acknowledgement number will be 90, which Host B will know during the 3-way handshake.
++ The following three segments are sent.
+  + Client to server, Seq=43, ACK=80, data='R'
+  + Server to client, Seq=80, ACK=44, data='R'
+  + Client to server, Seq=44, ACK=81
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
