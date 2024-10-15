@@ -525,6 +525,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Client to server, Seq=43, ACK=80, data='R'
   + Server to client, Seq=80, ACK=44, data='R'
   + Client to server, Seq=44, ACK=81
++ TCP would like to give the transmission rate of $R\2$ to each of the connections as it would aim for full bandwidth utilization while keeping equal bandwidth share.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
