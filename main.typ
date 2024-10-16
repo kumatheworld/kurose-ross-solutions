@@ -526,6 +526,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Server to client, Seq=80, ACK=44, data='R'
   + Client to server, Seq=44, ACK=81
 + TCP would like to give the transmission rate of $R\2$ to each of the connections as it would aim for full bandwidth utilization while keeping equal bandwidth share.
++ False. The value of `ssthresh` is set to one half of the congestion window value.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
