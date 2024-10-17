@@ -527,6 +527,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Client to server, Seq=44, ACK=81
 + TCP would like to give the transmission rate of $R\2$ to each of the connections as it would aim for full bandwidth utilization while keeping equal bandwidth share.
 + False. The value of `ssthresh` is set to one half of the congestion window value.
++ The client first establishes a TCP connection to the front-end server and sends data through the connection, which takes 4RTT#sub[FE]. The front-end server then sends the data through the persistent connection to the back-end server, which takes RTT#sub[BE] since the connection is already established and the congestion window is large enough to hold all of the data. By adding the processing time to the above, we get the response time formula.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
