@@ -537,6 +537,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Source port number: 23, destination port number: 54321
   + Yes, it is possible because the connections would still be distinguishable since the client hosts are different.
   + No, it is not possible because the connections would be indistinguishable.
++ For each packet, the ports and IP addresses are flipped on the way back to from the server to the clients.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
