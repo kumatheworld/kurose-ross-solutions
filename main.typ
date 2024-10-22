@@ -538,6 +538,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + Yes, it is possible because the connections would still be distinguishable since the client hosts are different.
   + No, it is not possible because the connections would be indistinguishable.
 + For each packet, the ports and IP addresses are flipped on the way back to from the server to the clients.
++ The 1s complement of the sum of 01010011, 01100110, 01110100 is 11010010 as the 8-bit sum of those three bytes is 00101101. The 1s complement of the sum instead of the sum itself is used because it is easier that way to detect an error. With the 1s complement of the sum, the error can be detected by adding all data and the checksum and, where an error has happened if and only if one or more bits are 0. A 1-bit error will always be detected as the corresponding bit of the sum of data and checksum will be 0. A 2-bit error might be undetected since the two bits could be of the same place from different bytes.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
