@@ -543,6 +543,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + 00111110.
   + 11000000.
   + The 1s complement does not change if the first bit of each of the two bytes changes.
++ No, the receiver cannot be absolutely certain that no bit errors have occurred because a 2-bit error could go undetected as shown above.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
