@@ -544,7 +544,8 @@ My experimental result is saved as #link("extra/c1w.pcapng").
   + 11000000.
   + The 1s complement does not change if the first bit of each of the two bytes changes.
 + No, the receiver cannot be absolutely certain that no bit errors have occurred because a 2-bit error could go undetected as shown above.
-+ A deadlock can occur when the sender at the top left state sends a packet, the receiver at the left state receives it and finds no corruption, and the sender at the top right state finds it corrupted. In such a case, the sender at the top right state will keep sending the packet with sequence number 0, to which the receiver at the right state will react with a NAK whether it is corrupted or not. The sender and receiver will never transition to the next states. 
++ A deadlock can occur when the sender at the top left state sends a packet, the receiver at the left state receives it and finds no corruption, and the sender at the top right state finds it corrupted. In such a case, the sender at the top right state will keep sending the packet with sequence number 0, to which the receiver at the right state will react with a NAK whether it is corrupted or not. The sender and receiver will never transition to the next states.
++ The ACK packets do not require sequence numbers because `rdt3.0` is a stop-and-wait protocol, in which the sender knows which of ACK 0 or ACK 1 it needs to receive.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
