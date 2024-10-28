@@ -547,6 +547,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + A deadlock can occur when the sender at the top left state sends a packet, the receiver at the left state receives it and finds no corruption, and the sender at the top right state finds it corrupted. In such a case, the sender at the top right state will keep sending the packet with sequence number 0, to which the receiver at the right state will react with a NAK whether it is corrupted or not. The sender and receiver will never transition to the next states.
 + The ACK packets do not require sequence numbers because `rdt3.0` is a stop-and-wait protocol, in which the sender knows which of ACK 0 or ACK 1 it needs to receive.
 + It is not drawn here as it is the same as the `rdt 2.2` receiver in the textbook.
++ The trace would look like that of Figure 3.16 (a), where the sender would keep sending the same packet and the receiver would send the opposite ACK if sender's packet is garbled and send the correct ACK if sender's packet is not garbled. 
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
