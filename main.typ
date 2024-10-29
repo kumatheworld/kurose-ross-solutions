@@ -548,6 +548,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The ACK packets do not require sequence numbers because `rdt3.0` is a stop-and-wait protocol, in which the sender knows which of ACK 0 or ACK 1 it needs to receive.
 + It is not drawn here as it is the same as the `rdt 2.2` receiver in the textbook.
 + The trace would look like that of Figure 3.16 (a), where the sender would keep sending the same packet and the receiver would send the opposite ACK if sender's packet is garbled and send the correct ACK if sender's packet is not garbled. 
++ The new protocol would be exactly like `rdt3.0`. It works just as `rdt3.0` does.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
