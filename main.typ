@@ -550,6 +550,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The trace would look like that of Figure 3.16 (a), where the sender would keep sending the same packet and the receiver would send the opposite ACK if sender's packet is garbled and send the correct ACK if sender's packet is not garbled. 
 + The new protocol would be exactly like `rdt3.0`. It works just as `rdt3.0` does.
 + The protocol would still work correctly if the `sndpkt=make_pkt(ACK,0,checksum)` action were removed from the self-transition in the Wait-for-1-from-below because the receiver would reuse the packet previously created before the transition to the state. However, the protocol would not work correctly if the `sndpkt=make_pkt(ACK,1,checksum)` action were removed from the self-transition in the Wait-for-0-from-below. If the first sender-to-receiver packet were corrupted, the receiver would have nothing to send back and crash while the sender would be waiting for ACK 0 indefinitely.
++ The protocol would work in an inefficent way that the number of packets between the sender and receiver would increase every time a timeout occurs after a corrupted packet receipt. Those packets wlll never move the senders and receivers forward.
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
