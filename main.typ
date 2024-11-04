@@ -551,6 +551,7 @@ My experimental result is saved as #link("extra/c1w.pcapng").
 + The new protocol would be exactly like `rdt3.0`. It works just as `rdt3.0` does.
 + The protocol would still work correctly if the `sndpkt=make_pkt(ACK,0,checksum)` action were removed from the self-transition in the Wait-for-1-from-below because the receiver would reuse the packet previously created before the transition to the state. However, the protocol would not work correctly if the `sndpkt=make_pkt(ACK,1,checksum)` action were removed from the self-transition in the Wait-for-0-from-below. If the first sender-to-receiver packet were corrupted, the receiver would have nothing to send back and crash while the sender would be waiting for ACK 0 indefinitely.
 + The protocol would work in an inefficent way that the number of packets between the sender and receiver would increase every time a timeout occurs after a corrupted packet receipt. Those packets wlll never move the senders and receivers forward.
++ The diagram here shows a failure pattern the protocol could face, in which the receiver would acknowledge the resent `pkt0` as the third packet to recieve. #image("extra/c3p13.drawio.svg")
 = The Network Layer: Data Plane
 = The Network Layer: Control Plane
 = The Link Layer and LANs
