@@ -1,0 +1,20 @@
+digraph {
+  node [shape=circle]
+  rankdir="LR"
+
+  bi [label="", shape=point]
+  ba [label="Wait for\ncall from\nabove"]
+  bb [label="Wait for\ncall from\nbelow"]
+
+  bi -> bb [style="dashed"]
+  ba -> bb [label="rdt_send(data)\n--------------------------------\npacket=make_pkt(data)\nudt_send(packet)"]
+  bb -> ba [label="rdt_rcv(packet)\n--------------------------------\nextract(packet,data)\ndeliver_data(data)"]
+
+  ai [label="", shape=point]
+  aa [label="Wait for\ncall from\nabove"]
+  ab [label="Wait for\ncall from\nbelow"]
+
+  ai -> aa [style="dashed"]
+  aa -> ab [label="rdt_send(data)\n--------------------------------\npacket=make_pkt(data)\nudt_send(packet)"]
+  ab -> aa [label="rdt_rcv(packet)\n--------------------------------\nextract(packet,data)\ndeliver_data(data)"]
+}
